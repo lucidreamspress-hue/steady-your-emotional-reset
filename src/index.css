@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,35 +6,35 @@
 
 @layer base {
   :root {
-    --background: 230 25% 97%;
-    --foreground: 230 25% 10%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
-    --card: 230 25% 94%;
-    --card-foreground: 230 25% 10%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 230 25% 97%;
-    --popover-foreground: 230 25% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 250 60% 58%;
+    --primary: 0 0% 8%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 230 30% 92%;
-    --secondary-foreground: 230 25% 20%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 230 20% 93%;
-    --muted-foreground: 230 15% 45%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 250 40% 92%;
-    --accent-foreground: 250 50% 35%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 8%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 230 20% 90%;
-    --input: 230 20% 90%;
-    --ring: 250 60% 58%;
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
+    --ring: 0 0% 8%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -45,42 +45,33 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Custom tokens */
-    --glass-bg: 230 25% 100% / 0.55;
-    --glass-border: 230 25% 100% / 0.35;
-    --glass-shadow: 250 60% 58% / 0.08;
-    --gradient-primary: linear-gradient(135deg, hsl(250, 60%, 58%), hsl(220, 70%, 55%));
-    --gradient-bg: linear-gradient(160deg, hsl(240, 30%, 96%), hsl(250, 40%, 94%), hsl(220, 35%, 96%));
+    /* Steady accent */
+    --steady-warm: 0 0% 45%;
+    --steady-red: 0 65% 55%;
+    --steady-yellow: 45 80% 55%;
+    --steady-blue: 215 70% 55%;
   }
 
   .dark {
-    --background: 230 25% 7%;
-    --foreground: 230 15% 92%;
-    --card: 230 25% 11%;
-    --card-foreground: 230 15% 92%;
-    --popover: 230 25% 7%;
-    --popover-foreground: 230 15% 92%;
-    --primary: 250 60% 65%;
-    --primary-foreground: 230 25% 7%;
-    --secondary: 230 20% 15%;
-    --secondary-foreground: 230 15% 92%;
-    --muted: 230 20% 15%;
-    --muted-foreground: 230 10% 55%;
-    --accent: 250 30% 20%;
-    --accent-foreground: 250 40% 75%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 95%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 230 20% 18%;
-    --input: 230 20% 18%;
-    --ring: 250 60% 65%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 95%;
   }
 }
 
@@ -90,14 +81,14 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    background: var(--gradient-bg);
-    background-attachment: fixed;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
-  h1, h2, h3 {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    font-weight: 800;
+  h1, h2, h3, h4 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
   }
 }
 
@@ -105,71 +96,23 @@
   .text-balance {
     text-wrap: balance;
   }
-
-  .glass {
-    background: hsl(var(--glass-bg));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid hsl(var(--glass-border));
-    box-shadow: 0 8px 32px hsl(var(--glass-shadow)),
-                inset 0 1px 0 hsl(230 25% 100% / 0.2);
-  }
-
-  .glass-subtle {
-    background: hsl(230 25% 100% / 0.35);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid hsl(230 25% 100% / 0.25);
-    box-shadow: 0 4px 16px hsl(var(--glass-shadow));
-  }
-
-  .neo {
-    background: hsl(var(--background));
-    box-shadow: 6px 6px 16px hsl(230 25% 80% / 0.5),
-                -6px -6px 16px hsl(0 0% 100% / 0.8);
-    border: 1px solid hsl(230 25% 100% / 0.3);
-  }
-
-  .neo-inset {
-    box-shadow: inset 4px 4px 10px hsl(230 25% 80% / 0.4),
-                inset -4px -4px 10px hsl(0 0% 100% / 0.7);
-  }
-
-  .neo-button {
-    background: var(--gradient-primary);
-    box-shadow: 4px 4px 12px hsl(250 60% 50% / 0.3),
-                -2px -2px 8px hsl(0 0% 100% / 0.5),
-                inset 0 1px 0 hsl(0 0% 100% / 0.2);
-    border: 1px solid hsl(250 50% 65% / 0.3);
-  }
 }
 
-/* Breathing animation for the reset button */
+/* Breathing animation */
 @keyframes breathe {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 hsl(250 60% 58% / 0.3); }
-  50% { transform: scale(1.05); box-shadow: 0 0 40px 10px hsl(250 60% 58% / 0.15); }
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 1; }
 }
 
 .animate-breathe {
   animation: breathe 4s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+@keyframes breathe-circle {
+  0%, 100% { transform: scale(0.6); opacity: 0.5; }
+  50% { transform: scale(1); opacity: 1; }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes morph {
-  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-  50% { border-radius: 50% 60% 30% 70% / 40% 70% 60% 30%; }
-  75% { border-radius: 40% 30% 60% 50% / 70% 40% 50% 60%; }
-}
-
-.animate-morph {
-  animation: morph 8s ease-in-out infinite;
+.animate-breathe-circle {
+  animation: breathe-circle 4s ease-in-out infinite;
 }

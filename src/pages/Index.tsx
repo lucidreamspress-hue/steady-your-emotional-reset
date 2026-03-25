@@ -1,10 +1,12 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import ProblemSection from "@/components/ProblemSection";
-import InsightSection from "@/components/InsightSection";
+import ScrollStorySection from "@/components/ScrollStorySection";
+import SolutionSection from "@/components/SolutionSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
-import SituationsSection from "@/components/SituationsSection";
-import WaitlistSection from "@/components/WaitlistSection";
+import EmotionalStatesSection from "@/components/EmotionalStatesSection";
+import ScienceSection from "@/components/ScienceSection";
+import ProgressSection from "@/components/ProgressSection";
+import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -12,11 +14,13 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <ProblemSection />
-      <InsightSection />
+      <ScrollStorySection />
+      <SolutionSection />
       <HowItWorksSection />
-      <SituationsSection />
-      <WaitlistSection />
+      <EmotionalStatesSection />
+      <ScienceSection />
+      <ProgressSection />
+      <FinalCTASection />
       <Footer />
     </div>
   );
