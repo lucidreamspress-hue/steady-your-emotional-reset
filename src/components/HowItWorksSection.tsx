@@ -40,9 +40,9 @@ const HowItWorksSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="text-center"
+              className="text-center neo rounded-2xl p-8"
             >
-              <span className="inline-block text-sm font-medium text-primary tracking-widest mb-4">
+              <span className="inline-block text-sm font-bold text-primary tracking-widest mb-4">
                 {step.number}
               </span>
               <h3 className="text-xl text-foreground mb-3">{step.title}</h3>

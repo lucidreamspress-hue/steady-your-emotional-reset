@@ -9,9 +9,9 @@ const fadeUp = {
 
 const InsightSection = () => {
   return (
-    <section className="py-24 md:py-32 bg-card">
+    <section className="py-24 md:py-32">
       <div className="container mx-auto px-6 max-w-3xl">
-        <motion.div {...fadeUp} className="text-center">
+        <motion.div {...fadeUp} className="text-center glass rounded-3xl p-10 md:p-14">
           <h2 className="text-3xl md:text-4xl tracking-tight text-foreground mb-8">
             What you need is a reset.
           </h2>
