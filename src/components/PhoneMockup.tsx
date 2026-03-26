@@ -34,7 +34,7 @@ const PhoneMockup = () => {
               className="flex flex-col items-center"
             >
               <p className="text-muted-foreground text-sm mb-8">Overwhelmed?</p>
-              <button className="btn-glass w-28 h-28 rounded-full text-lg animate-breathe">
+              <button className="btn-glass w-28 h-28 rounded-full text-sm font-medium animate-breathe">
                 RESET
               </button>
               <p className="font-mono text-muted-foreground/40 text-[10px] mt-8 tracking-widest uppercase">

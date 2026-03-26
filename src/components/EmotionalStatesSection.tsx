@@ -36,7 +36,7 @@ const states = [
 
 const EmotionalStatesSection = () => {
   return (
-    <section className="py-32 md:py-48">
+    <section id="emotional-states" className="py-32 md:py-48">
       <div className="mx-auto px-8 md:px-16 max-w-6xl">
         <div className="space-y-48">
           {states.map((state, i) => (
@@ -65,16 +65,18 @@ const EmotionalStatesSection = () => {
                 </h3>
                 <p className="text-lg text-muted-foreground mb-8">{state.description}</p>
 
-                <p className="font-mono text-xs tracking-widest text-muted-foreground mb-2 uppercase">
-                  Goal
-                </p>
-                <p className="text-foreground mb-6">{state.goal}</p>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="glass-node">Goal</span>
+                  <span className="text-foreground text-sm">{state.goal}</span>
+                </div>
 
-                <p className="font-mono text-xs tracking-widest text-muted-foreground mb-2 uppercase">
-                  Technique
-                </p>
-                <p className="text-muted-foreground mb-1">{state.technique}</p>
-                <p className="text-foreground text-sm font-medium">{state.steps}</p>
+                <div className="flex items-start gap-3">
+                  <span className="glass-node shrink-0">Technique</span>
+                  <div>
+                    <p className="text-foreground text-sm">{state.technique}</p>
+                    <p className="text-muted-foreground text-sm mt-1">{state.steps}</p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}

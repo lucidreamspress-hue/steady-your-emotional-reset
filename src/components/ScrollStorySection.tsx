@@ -2,12 +2,10 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const sentences = [
-  "Stress spikes happen suddenly.",
-  "Your heart starts racing.",
-  "Your thoughts spiral.",
-  "You feel overwhelmed.",
-  "Most apps ask you to choose what to do, start a session, or think clearly.",
-  "But in that moment, thinking is the hardest part.",
+  "Stress hits fast.",
+  "Your heart races,",
+  "thoughts spiral,",
+  "and thinking clearly is impossible.",
   "What you need is a reset.",
 ];
 
@@ -19,9 +17,9 @@ const ScrollStorySection = () => {
   });
 
   return (
-    <section ref={containerRef} className="relative" style={{ height: `${sentences.length * 50}vh` }}>
+    <section ref={containerRef} className="relative" style={{ height: `${sentences.length * 55}vh` }}>
       <div className="sticky top-0 h-screen flex items-center justify-center">
-        <div className="mx-auto px-8 md:px-16 max-w-4xl">
+        <div className="mx-auto px-8 md:px-16 max-w-3xl">
           <p className="text-3xl md:text-4xl lg:text-5xl font-serif leading-[1.4] md:leading-[1.35] text-center">
             {sentences.map((sentence, i) => (
               <ScrollWord
