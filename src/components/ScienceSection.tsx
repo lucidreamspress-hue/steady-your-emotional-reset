@@ -9,7 +9,7 @@ const points = [
 
 const ScienceSection = () => {
   return (
-    <section className="py-32 md:py-48 relative overflow-hidden">
+    <section id="science" className="py-32 md:py-48 relative overflow-hidden">
       {/* Background orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 pointer-events-none">
         <GradientOrb
