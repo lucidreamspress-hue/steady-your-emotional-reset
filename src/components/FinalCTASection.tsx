@@ -9,26 +9,26 @@ const FinalCTASection = () => {
     <section className="relative py-40 md:py-56 overflow-hidden">
       {/* Animated gradient background */}
       <div
-        className="absolute inset-0 animate-gradient opacity-40"
+        className="absolute inset-0 animate-gradient opacity-30"
         style={{
           background:
-            "linear-gradient(135deg, hsl(350, 60%, 85%), hsl(45, 50%, 85%), hsl(215, 50%, 85%), hsl(280, 40%, 85%))",
+            "linear-gradient(135deg, hsl(350, 60%, 90%), hsl(45, 50%, 88%), hsl(215, 50%, 88%), hsl(280, 40%, 90%))",
           backgroundSize: "300% 300%",
         }}
       />
-      {/* Extra soft orbs */}
+      {/* Soft wave orbs */}
       <div
-        className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full animate-orb-drift opacity-20"
+        className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full animate-wave opacity-15"
         style={{
-          background: "radial-gradient(circle, hsl(350, 60%, 75%), transparent)",
-          filter: "blur(80px)",
+          background: "radial-gradient(circle, hsl(350, 50%, 80%), transparent)",
+          filter: "blur(100px)",
         }}
       />
       <div
-        className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full animate-orb-breathe opacity-20"
+        className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full animate-orb-breathe opacity-15"
         style={{
-          background: "radial-gradient(circle, hsl(215, 50%, 75%), transparent)",
-          filter: "blur(80px)",
+          background: "radial-gradient(circle, hsl(215, 50%, 80%), transparent)",
+          filter: "blur(100px)",
         }}
       />
 
@@ -47,7 +47,7 @@ const FinalCTASection = () => {
           </p>
           <button
             onClick={() => setOpen(true)}
-            className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
+            className="btn-glass px-8 py-3.5 text-sm"
           >
             Get early access
           </button>

@@ -6,12 +6,14 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl">
-        <div className="mx-auto px-8 md:px-16 py-5 flex items-center justify-between max-w-6xl">
-          <span className="font-mono text-sm tracking-wide text-foreground">Steady</span>
+      <nav className="fixed top-0 left-0 right-0 z-50">
+        <div className="mx-auto px-8 md:px-16 py-6 flex items-center justify-between max-w-6xl">
+          <div className="glass-surface rounded-full px-5 py-2.5">
+            <span className="font-mono text-sm tracking-wide text-foreground">Steady</span>
+          </div>
           <button
             onClick={() => setOpen(true)}
-            className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
+            className="btn-glass px-5 py-2.5 text-xs tracking-wide"
           >
             Early access
           </button>

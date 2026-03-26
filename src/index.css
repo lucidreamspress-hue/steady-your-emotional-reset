@@ -94,6 +94,37 @@
   }
 }
 
+@layer components {
+  .btn-glass {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200;
+    background: linear-gradient(135deg, hsl(240 10% 15% / 0.9), hsl(240 15% 25% / 0.85));
+    color: hsl(240 20% 98%);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(240 10% 30% / 0.3);
+    border-radius: 9999px;
+    box-shadow: 0 2px 16px hsl(240 10% 10% / 0.12), inset 0 1px 0 hsl(0 0% 100% / 0.08);
+  }
+  .btn-glass:hover {
+    background: linear-gradient(135deg, hsl(240 10% 18% / 0.95), hsl(240 15% 28% / 0.9));
+    box-shadow: 0 4px 24px hsl(240 10% 10% / 0.18), inset 0 1px 0 hsl(0 0% 100% / 0.1);
+  }
+
+  .glass-surface {
+    background: hsl(240 20% 98% / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(240 10% 90% / 0.5);
+    box-shadow: 0 4px 24px hsl(240 10% 10% / 0.04);
+  }
+
+  .glass-number {
+    @apply w-10 h-10 flex items-center justify-center rounded-full font-mono text-xs;
+    background: linear-gradient(135deg, hsl(240 15% 92% / 0.8), hsl(240 10% 96% / 0.6));
+    backdrop-filter: blur(8px);
+    border: 1px solid hsl(240 10% 88% / 0.6);
+    box-shadow: 0 2px 8px hsl(240 10% 10% / 0.05), inset 0 1px 0 hsl(0 0% 100% / 0.5);
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -124,31 +155,35 @@
 
 /* Orb animations */
 @keyframes orb-pulse {
-  0%, 100% { transform: scale(1); filter: blur(60px); }
-  50% { transform: scale(1.08); filter: blur(70px); }
+  0%, 100% { transform: scale(1) translate(0, 0); filter: blur(60px); }
+  25% { transform: scale(1.06) translate(3px, -4px); filter: blur(65px); }
+  50% { transform: scale(1.1) translate(-2px, 3px); filter: blur(70px); }
+  75% { transform: scale(1.04) translate(4px, 2px); filter: blur(63px); }
 }
 
 @keyframes orb-drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(5px, -8px) scale(1.03); }
-  66% { transform: translate(-5px, 5px) scale(0.97); }
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  25% { transform: translate(8px, -12px) scale(1.04) rotate(2deg); }
+  50% { transform: translate(-6px, 8px) scale(0.96) rotate(-1deg); }
+  75% { transform: translate(10px, 4px) scale(1.02) rotate(3deg); }
 }
 
 @keyframes orb-breathe-slow {
-  0%, 100% { transform: scale(1) rotate(0deg); filter: blur(50px); }
-  50% { transform: scale(1.05) rotate(3deg); filter: blur(60px); }
+  0%, 100% { transform: scale(1) rotate(0deg) translate(0, 0); filter: blur(50px); }
+  33% { transform: scale(1.07) rotate(3deg) translate(-5px, 6px); filter: blur(58px); }
+  66% { transform: scale(0.95) rotate(-2deg) translate(6px, -4px); filter: blur(55px); }
 }
 
 .animate-orb-pulse {
-  animation: orb-pulse 5s ease-in-out infinite;
+  animation: orb-pulse 6s ease-in-out infinite;
 }
 
 .animate-orb-drift {
-  animation: orb-drift 8s ease-in-out infinite;
+  animation: orb-drift 10s ease-in-out infinite;
 }
 
 .animate-orb-breathe {
-  animation: orb-breathe-slow 6s ease-in-out infinite;
+  animation: orb-breathe-slow 8s ease-in-out infinite;
 }
 
 /* Gradient wave animation for final CTA */
@@ -161,4 +196,25 @@
 .animate-gradient {
   background-size: 300% 300%;
   animation: gradient-shift 12s ease-in-out infinite;
+}
+
+/* Background ambient blob */
+@keyframes ambient-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -30px) scale(1.05); }
+  66% { transform: translate(-15px, 20px) scale(0.97); }
+}
+
+.animate-ambient {
+  animation: ambient-float 20s ease-in-out infinite;
+}
+
+/* Subtle wave motion */
+@keyframes wave-motion {
+  0%, 100% { transform: translateY(0) scaleX(1); }
+  50% { transform: translateY(-8px) scaleX(1.02); }
+}
+
+.animate-wave {
+  animation: wave-motion 8s ease-in-out infinite;
 }
