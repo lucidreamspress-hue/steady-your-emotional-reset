@@ -11,11 +11,11 @@ const ScienceSection = () => {
   return (
     <section className="py-32 md:py-48 relative overflow-hidden">
       {/* Background orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 pointer-events-none">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 pointer-events-none">
         <GradientOrb
-          color1="hsl(240, 40%, 75%)"
-          color2="hsl(280, 30%, 80%)"
-          size={500}
+          color1="hsl(240, 40%, 80%)"
+          color2="hsl(280, 30%, 85%)"
+          size={600}
           animation="breathe"
         />
       </div>

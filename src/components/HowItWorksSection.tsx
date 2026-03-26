@@ -8,7 +8,7 @@ const steps = [
 
 const HowItWorksSection = () => {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-32 md:py-40">
       <div className="mx-auto px-8 md:px-16 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -29,9 +29,9 @@ const HowItWorksSection = () => {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              <span className="font-mono text-xs text-muted-foreground tracking-widest mb-4 block">
+              <div className="glass-number mb-6">
                 {step.number}
-              </span>
+              </div>
               <h3 className="font-serif text-2xl text-foreground mb-3">{step.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{step.description}</p>
             </motion.div>

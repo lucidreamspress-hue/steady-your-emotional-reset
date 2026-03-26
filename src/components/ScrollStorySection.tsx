@@ -19,7 +19,7 @@ const ScrollStorySection = () => {
   });
 
   return (
-    <section ref={containerRef} className="relative" style={{ height: `${sentences.length * 60}vh` }}>
+    <section ref={containerRef} className="relative" style={{ height: `${sentences.length * 50}vh` }}>
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="mx-auto px-8 md:px-16 max-w-4xl">
           <p className="text-3xl md:text-4xl lg:text-5xl font-serif leading-[1.4] md:leading-[1.35] text-center">
@@ -30,6 +30,7 @@ const ScrollStorySection = () => {
                 index={i}
                 total={sentences.length}
                 scrollYProgress={scrollYProgress}
+                isLast={i === sentences.length - 1}
               />
             ))}
           </p>
@@ -44,24 +45,23 @@ interface ScrollWordProps {
   index: number;
   total: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+  isLast: boolean;
 }
 
-const ScrollWord = ({ text, index, total, scrollYProgress }: ScrollWordProps) => {
+const ScrollWord = ({ text, index, total, scrollYProgress, isLast }: ScrollWordProps) => {
   const start = index / total;
   const end = (index + 1) / total;
 
   const opacity = useTransform(
     scrollYProgress,
     [Math.max(0, start - 0.02), start, end, Math.min(1, end + 0.02)],
-    [0.12, 1, 1, 0.12]
+    [0.1, 1, 1, 0.1]
   );
-
-  const isLast = index === total - 1;
 
   return (
     <motion.span
       style={{ opacity }}
-      className={isLast ? "font-serif italic" : ""}
+      className={isLast ? "font-serif italic text-4xl md:text-5xl lg:text-6xl" : ""}
     >
       {text}
     </motion.span>

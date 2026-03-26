@@ -18,10 +18,10 @@ const PhoneMockup = () => {
   }, [current]);
 
   return (
-    <div className="w-[260px] h-[520px] rounded-[2.5rem] bg-secondary/50 p-3 shadow-sm">
-      <div className="w-full h-full bg-background rounded-[2rem] flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="w-[260px] h-[520px] rounded-[2.5rem] p-3 glass-surface">
+      <div className="w-full h-full bg-background/80 rounded-[2rem] flex flex-col items-center justify-center relative overflow-hidden">
         {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-secondary/50 rounded-b-xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-muted/50 rounded-b-xl" />
 
         <AnimatePresence mode="wait">
           {current === 0 && (
@@ -34,9 +34,9 @@ const PhoneMockup = () => {
               className="flex flex-col items-center"
             >
               <p className="text-muted-foreground text-sm mb-8">Overwhelmed?</p>
-              <div className="w-28 h-28 rounded-full bg-primary text-primary-foreground font-medium text-lg flex items-center justify-center animate-breathe">
+              <button className="btn-glass w-28 h-28 rounded-full text-lg animate-breathe">
                 RESET
-              </div>
+              </button>
               <p className="font-mono text-muted-foreground/40 text-[10px] mt-8 tracking-widest uppercase">
                 Steady
               </p>

@@ -37,7 +37,7 @@ const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-md border-none bg-background/95 backdrop-blur-xl">
+      <DialogContent className="sm:max-w-md border-none glass-surface rounded-2xl">
         <DialogHeader>
           <DialogTitle className="font-serif text-2xl">Get early access</DialogTitle>
           <DialogDescription>
@@ -53,7 +53,7 @@ const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
-              className="w-full px-4 py-3 rounded-lg bg-secondary text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm border-none"
+              className="w-full px-4 py-3 rounded-xl bg-secondary/60 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 text-sm border border-border/30"
             />
             <input
               type="email"
@@ -61,11 +61,11 @@ const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email"
-              className="w-full px-4 py-3 rounded-lg bg-secondary text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm border-none"
+              className="w-full px-4 py-3 rounded-xl bg-secondary/60 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 text-sm border border-border/30"
             />
             <button
               type="submit"
-              className="w-full px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
+              className="w-full btn-glass py-3.5 text-sm"
             >
               Join early access
             </button>

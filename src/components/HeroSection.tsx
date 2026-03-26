@@ -7,7 +7,7 @@ const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section className="min-h-screen flex items-center pt-24 pb-16">
+    <section className="min-h-screen flex items-center pt-28 pb-16">
       <div className="mx-auto px-8 md:px-16 max-w-6xl w-full">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div
@@ -23,7 +23,7 @@ const HeroSection = () => {
             </p>
             <button
               onClick={() => setModalOpen(true)}
-              className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
+              className="btn-glass px-8 py-3.5 text-sm"
             >
               Install Steady
             </button>
@@ -32,7 +32,7 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-16 text-xl md:text-2xl font-serif italic text-muted-foreground/50 leading-relaxed max-w-md"
+              className="mt-16 text-lg md:text-xl font-serif italic text-muted-foreground/40 leading-relaxed max-w-md"
             >
               For moments when everything feels overwhelming, your thoughts race, or your mind won't slow down.
             </motion.p>
