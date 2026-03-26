@@ -1,19 +1,13 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const lines = [
+const sentences = [
   "Stress spikes happen suddenly.",
   "Your heart starts racing.",
   "Your thoughts spiral.",
   "You feel overwhelmed.",
-  "",
-  "Most apps ask you to choose what to do.",
-  "Start a session.",
-  "Read instructions.",
-  "Think clearly.",
-  "",
+  "Most apps ask you to choose what to do, start a session, or think clearly.",
   "But in that moment, thinking is the hardest part.",
-  "",
   "What you need is a reset.",
 ];
 
@@ -21,73 +15,56 @@ const ScrollStorySection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start center", "end center"],
+    offset: ["start start", "end end"],
   });
 
-  const nonEmptyLines = lines.filter((l) => l !== "");
-  const totalNonEmpty = nonEmptyLines.length;
-  let nonEmptyIndex = -1;
-
   return (
-    <section ref={containerRef} className="py-32 md:py-48">
-      <div className="container mx-auto px-6 max-w-2xl">
-        <div className="space-y-4">
-          {lines.map((line, i) => {
-            if (line === "") {
-              return <div key={i} className="h-6" />;
-            }
-
-            nonEmptyIndex++;
-            const idx = nonEmptyIndex;
-            const start = idx / totalNonEmpty;
-            const peak = (idx + 0.5) / totalNonEmpty;
-            const end = (idx + 1) / totalNonEmpty;
-
-            return (
-              <ScrollLine
+    <section ref={containerRef} className="relative" style={{ height: `${sentences.length * 60}vh` }}>
+      <div className="sticky top-0 h-screen flex items-center justify-center">
+        <div className="mx-auto px-8 md:px-16 max-w-4xl">
+          <p className="text-3xl md:text-4xl lg:text-5xl font-serif leading-[1.4] md:leading-[1.35] text-center">
+            {sentences.map((sentence, i) => (
+              <ScrollWord
                 key={i}
-                line={line}
+                text={sentence + " "}
+                index={i}
+                total={sentences.length}
                 scrollYProgress={scrollYProgress}
-                start={start}
-                peak={peak}
-                end={end}
-                isLast={line === "What you need is a reset."}
               />
-            );
-          })}
+            ))}
+          </p>
         </div>
       </div>
     </section>
   );
 };
 
-interface ScrollLineProps {
-  line: string;
+interface ScrollWordProps {
+  text: string;
+  index: number;
+  total: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
-  start: number;
-  peak: number;
-  end: number;
-  isLast: boolean;
 }
 
-const ScrollLine = ({ line, scrollYProgress, start, peak, end, isLast }: ScrollLineProps) => {
+const ScrollWord = ({ text, index, total, scrollYProgress }: ScrollWordProps) => {
+  const start = index / total;
+  const end = (index + 1) / total;
+
   const opacity = useTransform(
     scrollYProgress,
-    [Math.max(0, start - 0.05), start, peak, end, Math.min(1, end + 0.05)],
-    [0.15, 0.15, 1, 1, 0.15]
+    [Math.max(0, start - 0.02), start, end, Math.min(1, end + 0.02)],
+    [0.12, 1, 1, 0.12]
   );
 
+  const isLast = index === total - 1;
+
   return (
-    <motion.p
+    <motion.span
       style={{ opacity }}
-      className={`${
-        isLast
-          ? "text-2xl md:text-3xl font-semibold text-foreground mt-8"
-          : "text-xl md:text-2xl text-foreground"
-      } leading-relaxed`}
+      className={isLast ? "font-serif italic" : ""}
     >
-      {line}
-    </motion.p>
+      {text}
+    </motion.span>
   );
 };
 
