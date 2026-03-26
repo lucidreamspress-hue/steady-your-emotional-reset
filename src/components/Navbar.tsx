@@ -16,12 +16,23 @@ const Navbar = () => {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50">
         <div className="mx-auto px-8 md:px-16 py-5 max-w-6xl">
           <div className="glass-surface rounded-full px-6 py-3 flex items-center justify-between">
-            <span className="font-mono text-sm tracking-wide text-foreground font-medium">Steady</span>
+            <a
+              href="#"
+              onClick={scrollToTop}
+              className="font-mono text-sm tracking-wide text-foreground font-medium hover:opacity-70 transition-opacity cursor-pointer"
+            >
+              Steady
+            </a>
             <div className="hidden md:flex items-center gap-6">
               {navLinks.map((link) => (
                 <a
