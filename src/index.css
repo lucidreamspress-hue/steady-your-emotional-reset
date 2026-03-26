@@ -233,3 +233,10 @@
 .animate-wave {
   animation: wave-motion 8s ease-in-out infinite;
 }
+
+/* Orb color fade animation */
+@keyframes orb-color-fade {
+  0% { opacity: 0.15; }
+  50% { opacity: 0.85; }
+  100% { opacity: 0.15; }
+}
