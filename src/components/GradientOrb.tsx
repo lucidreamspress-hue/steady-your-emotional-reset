@@ -15,6 +15,8 @@ const GradientOrb = ({
   animation = "pulse",
   className = "",
 }: GradientOrbProps) => {
+  const baseColor = "hsl(250, 50%, 75%)";
+
   const animClass =
     animation === "pulse"
       ? "animate-orb-pulse"
@@ -32,8 +34,11 @@ const GradientOrb = ({
       style={{
         width: size,
         height: size,
-        background: `radial-gradient(circle at 40% 40%, ${color1}, ${color2})`,
+        background: `radial-gradient(circle at 40% 40%, ${baseColor}, ${baseColor})`,
         filter: "blur(50px)",
+        animation: `${animation === "pulse" ? "orb-pulse" : animation === "drift" ? "orb-drift" : "orb-breathe-slow"} ${animation === "pulse" ? "6s" : animation === "drift" ? "10s" : "8s"} ease-in-out infinite, orb-color-shift-${animation} 8s ease-in-out infinite`,
+        ["--orb-target-1" as string]: color1,
+        ["--orb-target-2" as string]: color2,
       }}
     />
   );

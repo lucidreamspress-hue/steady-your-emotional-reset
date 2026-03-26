@@ -32,7 +32,7 @@ const HowItWorksSection = () => {
               <div className="glass-number mb-6">
                 {step.number}
               </div>
-              <h3 className="font-serif text-2xl text-foreground mb-3">{step.title}</h3>
+              <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-3">{step.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{step.description}</p>
             </motion.div>
           ))}

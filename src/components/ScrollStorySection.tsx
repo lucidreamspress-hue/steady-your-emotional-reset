@@ -17,7 +17,7 @@ const ScrollStorySection = () => {
   });
 
   return (
-    <section ref={containerRef} className="relative" style={{ height: `${sentences.length * 55}vh` }}>
+    <section ref={containerRef} className="relative" style={{ height: `${sentences.length * 60}vh` }}>
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="mx-auto px-8 md:px-16 max-w-3xl">
           <p className="text-3xl md:text-4xl lg:text-5xl font-serif leading-[1.4] md:leading-[1.35] text-center">
@@ -57,12 +57,15 @@ const ScrollWord = ({ text, index, total, scrollYProgress, isLast }: ScrollWordP
   );
 
   return (
-    <motion.span
-      style={{ opacity }}
-      className={isLast ? "font-serif italic text-4xl md:text-5xl lg:text-6xl" : ""}
-    >
-      {text}
-    </motion.span>
+    <>
+      {isLast && <br />}
+      <motion.span
+        style={{ opacity }}
+        className={isLast ? "font-bold" : ""}
+      >
+        {text}
+      </motion.span>
+    </>
   );
 };
 
