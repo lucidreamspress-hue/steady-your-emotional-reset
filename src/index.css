@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    --background: 240 20% 98%;
+    --foreground: 240 10% 10%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 8%;
+    --card: 240 15% 96%;
+    --card-foreground: 240 10% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover: 240 20% 98%;
+    --popover-foreground: 240 10% 10%;
 
-    --primary: 0 0% 8%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 240 10% 15%;
+    --primary-foreground: 240 20% 98%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 240 10% 94%;
+    --secondary-foreground: 240 10% 10%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 240 10% 94%;
+    --muted-foreground: 240 5% 50%;
 
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 8%;
+    --accent: 240 10% 94%;
+    --accent-foreground: 240 10% 10%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 92%;
-    --input: 0 0% 92%;
-    --ring: 0 0% 8%;
+    --border: 240 10% 90%;
+    --input: 240 10% 90%;
+    --ring: 240 10% 15%;
 
     --radius: 0.75rem;
 
@@ -45,33 +45,35 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Steady accent */
-    --steady-warm: 0 0% 45%;
-    --steady-red: 0 65% 55%;
-    --steady-yellow: 45 80% 55%;
-    --steady-blue: 215 70% 55%;
+    /* Gradient orb colors */
+    --orb-warm: 350 70% 65%;
+    --orb-warm-accent: 25 80% 65%;
+    --orb-yellow: 45 70% 70%;
+    --orb-yellow-accent: 55 60% 60%;
+    --orb-cool: 215 60% 65%;
+    --orb-cool-accent: 240 50% 70%;
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 0 0% 95%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 55%;
-    --accent: 0 0% 12%;
-    --accent-foreground: 0 0% 95%;
+    --background: 240 15% 5%;
+    --foreground: 240 10% 92%;
+    --card: 240 12% 10%;
+    --card-foreground: 240 10% 92%;
+    --popover: 240 15% 5%;
+    --popover-foreground: 240 10% 92%;
+    --primary: 240 10% 92%;
+    --primary-foreground: 240 15% 5%;
+    --secondary: 240 10% 14%;
+    --secondary-foreground: 240 10% 92%;
+    --muted: 240 10% 14%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 240 10% 14%;
+    --accent-foreground: 240 10% 92%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 95%;
+    --border: 240 10% 18%;
+    --input: 240 10% 18%;
+    --ring: 240 10% 92%;
   }
 }
 
@@ -86,15 +88,18 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.025em;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .font-mono-label {
+    font-family: 'DM Mono', monospace;
   }
 }
 
@@ -115,4 +120,45 @@
 
 .animate-breathe-circle {
   animation: breathe-circle 4s ease-in-out infinite;
+}
+
+/* Orb animations */
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1); filter: blur(60px); }
+  50% { transform: scale(1.08); filter: blur(70px); }
+}
+
+@keyframes orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5px, -8px) scale(1.03); }
+  66% { transform: translate(-5px, 5px) scale(0.97); }
+}
+
+@keyframes orb-breathe-slow {
+  0%, 100% { transform: scale(1) rotate(0deg); filter: blur(50px); }
+  50% { transform: scale(1.05) rotate(3deg); filter: blur(60px); }
+}
+
+.animate-orb-pulse {
+  animation: orb-pulse 5s ease-in-out infinite;
+}
+
+.animate-orb-drift {
+  animation: orb-drift 8s ease-in-out infinite;
+}
+
+.animate-orb-breathe {
+  animation: orb-breathe-slow 6s ease-in-out infinite;
+}
+
+/* Gradient wave animation for final CTA */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 300% 300%;
+  animation: gradient-shift 12s ease-in-out infinite;
 }

@@ -14,7 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
         sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        mono: ['"DM Mono"', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,10 +62,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        steady: {
-          red: "hsl(var(--steady-red))",
-          yellow: "hsl(var(--steady-yellow))",
-          blue: "hsl(var(--steady-blue))",
+        orb: {
+          warm: "hsl(var(--orb-warm))",
+          "warm-accent": "hsl(var(--orb-warm-accent))",
+          yellow: "hsl(var(--orb-yellow))",
+          "yellow-accent": "hsl(var(--orb-yellow-accent))",
+          cool: "hsl(var(--orb-cool))",
+          "cool-accent": "hsl(var(--orb-cool-accent))",
         },
       },
       borderRadius: {

@@ -1,6 +1,7 @@
-Design system: Apple/Linear minimal, monochrome with Inter font.
-Palette: near-black primary on white bg. No gradients, no neomorphism.
-Font: Inter (weight 600 for headings, 400 body). No serif.
-Accent colors: steady-red (0 65% 55%), steady-yellow (45 80% 55%), steady-blue (215 70% 55%).
-CTA opens modal dialog (EarlyAccessModal), never inline or new page.
-Animations: breathe (scale pulse), breathe-circle (expanding circle), scroll-driven opacity.
+Design system: Instrument Serif headings, Inter body, DM Mono labels/captions.
+Palette: soft desaturated background (240 20% 98%), near-black foreground. No borders, no cards.
+Orb colors: warm pink/orange, soft yellow, cool blue — all blurred radial gradients.
+CTA opens EarlyAccessModal dialog, never inline or new page.
+Animations: orb-pulse, orb-drift, orb-breathe (gradient spheres), breathe/breathe-circle (phone), gradient-shift (final CTA bg).
+Layout: consistent px-8 md:px-16 horizontal padding, max-w-6xl, left-aligned sections.
+No emojis anywhere. No cards, no bordered boxes. Font-mono for labels/stats.

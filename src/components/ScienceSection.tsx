@@ -1,31 +1,55 @@
 import { motion } from "framer-motion";
+import GradientOrb from "./GradientOrb";
+
+const points = [
+  "Breathing slows your heart rate",
+  "Grounding shifts attention out of loops",
+  "Rhythm re-engages your body",
+];
 
 const ScienceSection = () => {
   return (
-    <section className="py-24 md:py-32 border-t border-border/50">
-      <div className="container mx-auto px-6 max-w-3xl">
+    <section className="py-32 md:py-48 relative overflow-hidden">
+      {/* Background orb */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 pointer-events-none">
+        <GradientOrb
+          color1="hsl(240, 40%, 75%)"
+          color2="hsl(280, 30%, 80%)"
+          size={500}
+          animation="breathe"
+        />
+      </div>
+
+      <div className="mx-auto px-8 md:px-16 max-w-5xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
+          className="grid md:grid-cols-2 gap-20 items-center"
         >
-          <h2 className="text-3xl md:text-4xl text-foreground mb-10">
-            Built on how your nervous system works
-          </h2>
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              Steady uses short, evidence-based techniques that directly affect how your body responds to stress.
+          <div>
+            <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-12">
+              Built on how your nervous system works
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              These techniques are widely used in stress and anxiety regulation.
             </p>
-            <p>Each reset is based on well-established mechanisms:</p>
-            <div className="space-y-3 text-base pl-1">
-              <p>— Breathing patterns that help slow heart rate</p>
-              <p>— Sensory grounding to shift attention out of thought loops</p>
-              <p>— Rhythmic stimulation to re-engage the body</p>
-            </div>
-            <p>
-              These approaches are commonly used in anxiety regulation and stress recovery.
-            </p>
+          </div>
+
+          <div className="space-y-8">
+            {points.map((point, i) => (
+              <motion.p
+                key={point}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="text-xl md:text-2xl font-serif text-foreground"
+              >
+                {point}
+              </motion.p>
+            ))}
           </div>
         </motion.div>
       </div>
