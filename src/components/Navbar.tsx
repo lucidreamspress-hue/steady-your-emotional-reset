@@ -29,8 +29,8 @@ const Navbar = () => {
             <a
               href="#"
               onClick={scrollToTop}
-              className="text-sm tracking-wide font-medium hover:opacity-70 transition-opacity cursor-pointer"
-              style={{ color: "#1a2a3a", fontFamily: "Inter, sans-serif" }}
+              className="font-display hover:opacity-70 transition-opacity cursor-pointer"
+              style={{ color: "#1a2a3a", fontWeight: 600, fontSize: "16px", letterSpacing: "-0.02em" }}
             >
               Steady
             </a>
@@ -42,7 +42,7 @@ const Navbar = () => {
                   onClick={(e) => handleNav(e, link.href)}
                   className="transition-colors"
                   style={{
-                    fontFamily: "Inter, sans-serif",
+                    fontFamily: "Jost, sans-serif",
                     fontSize: "13px",
                     fontWeight: 400,
                     color: "#4a6070",

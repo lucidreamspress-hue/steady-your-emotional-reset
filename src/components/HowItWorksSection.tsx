@@ -17,7 +17,7 @@ const HowItWorksSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="font-display mb-20"
-          style={{ fontSize: "36px", fontWeight: 400, color: "#1a2a3a" }}
+          style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
         >
           How it works
         </motion.h2>
@@ -37,17 +37,17 @@ const HowItWorksSection = () => {
                 <div>
                   <h3
                     className="font-display mb-2"
-                    style={{ fontSize: "22px", fontWeight: 500, color: "#1a2a3a" }}
+                    style={{ fontSize: "22px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
                   >
                     {step.title}
                   </h3>
                   <p
                     style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontSize: "15px",
+                      fontFamily: "Jost, sans-serif",
+                      fontSize: "17px",
                       fontWeight: 300,
                       color: "#4a6070",
-                      lineHeight: 1.6,
+                      lineHeight: 1.7,
                     }}
                   >
                     {step.description}
