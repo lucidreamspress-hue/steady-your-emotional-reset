@@ -5,21 +5,24 @@ const orbs = [
     label: "Overwhelmed",
     description: "Heart racing, anxiety spike",
     background:
-      "radial-gradient(circle at 38% 38%, #ffd0d8, #f4a0b0 55%, #e87090)",
+      "radial-gradient(circle at 38% 35%, rgba(255,220,228,0.95), rgba(244,160,176,0.8) 55%, rgba(232,112,144,0.65))",
+    shadow: "0 8px 32px rgba(244,160,176,0.35)",
     delay: "0s",
   },
   {
     label: "Stuck",
     description: "Overthinking, can't stop thoughts",
     background:
-      "radial-gradient(circle at 38% 38%, #fff0a0, #f5c842 55%, #e8a820)",
+      "radial-gradient(circle at 38% 35%, rgba(255,248,180,0.95), rgba(245,200,66,0.8) 55%, rgba(232,168,32,0.65))",
+    shadow: "0 8px 32px rgba(245,200,66,0.3)",
     delay: "0.8s",
   },
   {
     label: "Numb",
     description: "Disconnected, low energy",
     background:
-      "radial-gradient(circle at 38% 38%, #c8e8f8, #7ab8d8 55%, #4a90b8)",
+      "radial-gradient(circle at 38% 35%, rgba(200,232,250,0.95), rgba(122,184,216,0.8) 55%, rgba(74,144,184,0.65))",
+    shadow: "0 8px 32px rgba(122,184,216,0.3)",
     delay: "1.6s",
   },
 ];
@@ -34,7 +37,7 @@ const EmotionalStatesSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="font-display mb-20 text-center"
-          style={{ fontSize: "36px", fontWeight: 400, color: "#1a2a3a" }}
+          style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
         >
           Built for how you actually feel
         </motion.h2>
@@ -53,21 +56,22 @@ const EmotionalStatesSection = () => {
               <div
                 className="animate-breathe"
                 style={{
-                  width: "140px",
-                  height: "140px",
+                  width: "120px",
+                  height: "120px",
                   borderRadius: "50%",
                   background: o.background,
-                  boxShadow: "0 12px 40px rgba(26,42,58,0.12)",
+                  boxShadow: o.shadow,
                   animationDelay: o.delay,
                   marginBottom: "24px",
                 }}
               />
               <p
+                className="font-display"
                 style={{
-                  fontFamily: "Inter, sans-serif",
-                  fontSize: "13px",
-                  fontWeight: 500,
+                  fontSize: "14px",
+                  fontWeight: 600,
                   color: "#1a2a3a",
+                  letterSpacing: "-0.02em",
                   marginBottom: "6px",
                 }}
               >
@@ -75,8 +79,8 @@ const EmotionalStatesSection = () => {
               </p>
               <p
                 style={{
-                  fontFamily: "Inter, sans-serif",
-                  fontSize: "12px",
+                  fontFamily: "Jost, sans-serif",
+                  fontSize: "13px",
                   fontWeight: 300,
                   color: "#4a6070",
                 }}

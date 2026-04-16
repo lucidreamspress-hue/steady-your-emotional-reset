@@ -1,64 +1,100 @@
 import { motion } from "framer-motion";
 
-const points = [
-  "Breathing slows your heart rate.",
-  "Grounding shifts attention out of loops.",
-  "Rhythm re-engages your body.",
+const cards = [
+  {
+    num: "01",
+    color: "#7ab8d8",
+    title: "Breathing",
+    body: "Physiological sigh breathing activates the parasympathetic nervous system — the body's built-in brake. Double inhale, slow exhale. It works in under 60 seconds.",
+  },
+  {
+    num: "02",
+    color: "#f4a0b0",
+    title: "Grounding",
+    body: "Sensory grounding interrupts the thought loop by shifting attention to the present moment. It's one of the fastest ways to exit an anxiety spiral.",
+  },
+  {
+    num: "03",
+    color: "#f5c842",
+    title: "Rhythm",
+    body: "Rhythmic stimulation — tapping, pacing, breath — reactivates the nervous system when you feel numb or disconnected. It works bottom-up, bypassing overthinking.",
+  },
 ];
 
 const ScienceSection = () => {
   return (
-    <section id="science" className="py-32 md:py-40 relative overflow-hidden">
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 pointer-events-none animate-breathe"
-        style={{
-          background: "radial-gradient(circle, #c8e8f8, transparent 70%)",
-          filter: "blur(60px)",
-        }}
-      />
+    <section id="science" style={{ background: "#f0f4f8", padding: "100px 24px" }}>
+      <div className="mx-auto max-w-6xl">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="font-display text-center mb-6"
+          style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
+        >
+          Built on how your nervous system works
+        </motion.h2>
+        <p
+          className="text-center mx-auto mb-16"
+          style={{
+            fontFamily: "Jost, sans-serif",
+            fontSize: "18px",
+            fontWeight: 300,
+            color: "#4a6070",
+            maxWidth: "560px",
+            lineHeight: 1.65,
+          }}
+        >
+          Every technique in Steady is grounded in how the nervous system actually responds to stress.
+        </p>
 
-      <div className="mx-auto px-8 md:px-16 max-w-5xl relative z-10">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2
-              className="font-display mb-8"
-              style={{ fontSize: "36px", fontWeight: 400, color: "#1a2a3a", lineHeight: 1.15 }}
-            >
-              Built on how your nervous system works
-            </h2>
-            <p
+        <div className="grid md:grid-cols-3 gap-6">
+          {cards.map((c, i) => (
+            <motion.div
+              key={c.num}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
               style={{
-                fontFamily: "Inter, sans-serif",
-                fontSize: "15px",
-                fontWeight: 300,
-                color: "#4a6070",
-                lineHeight: 1.6,
+                background: "#ffffff",
+                borderRadius: "20px",
+                padding: "36px",
+                border: "1px solid rgba(200,215,230,0.6)",
               }}
             >
-              These techniques are widely used in stress and anxiety regulation.
-            </p>
-          </motion.div>
-
-          <div className="space-y-6">
-            {points.map((point, i) => (
-              <motion.p
-                key={point}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
+              <p
                 className="font-display"
-                style={{ fontSize: "22px", fontWeight: 400, color: "#1a2a3a", lineHeight: 1.3 }}
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: c.color,
+                  letterSpacing: "0.1em",
+                  marginBottom: "16px",
+                }}
               >
-                {point}
-              </motion.p>
-            ))}
-          </div>
+                {c.num}
+              </p>
+              <h3
+                className="font-display mb-3"
+                style={{ fontSize: "22px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
+              >
+                {c.title}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "Jost, sans-serif",
+                  fontSize: "17px",
+                  fontWeight: 300,
+                  color: "#4a6070",
+                  lineHeight: 1.7,
+                }}
+              >
+                {c.body}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

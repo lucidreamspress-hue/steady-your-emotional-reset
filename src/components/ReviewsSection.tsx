@@ -25,7 +25,7 @@ const reviews = [
 
 const ReviewsSection = () => {
   return (
-    <section style={{ background: "#ffffff", padding: "80px 24px" }}>
+    <section style={{ background: "#f0f4f8", padding: "100px 24px" }}>
       <div className="mx-auto max-w-5xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ const ReviewsSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="font-display text-center mb-16"
-          style={{ fontSize: "36px", fontWeight: 400, color: "#1a2a3a" }}
+          style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
         >
           What early users say about Steady
         </motion.h2>
@@ -47,25 +47,25 @@ const ReviewsSection = () => {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
               style={{
-                background: "rgba(240,244,248,0.8)",
+                background: "#ffffff",
                 borderRadius: "16px",
                 padding: "28px",
               }}
             >
               <p
                 style={{
-                  fontFamily: "Inter, sans-serif",
-                  fontSize: "16px",
+                  fontFamily: "Jost, sans-serif",
+                  fontSize: "17px",
                   fontWeight: 300,
                   color: "#1a2a3a",
-                  lineHeight: 1.6,
+                  lineHeight: 1.7,
                 }}
               >
                 {r.quote}
               </p>
               <p
                 style={{
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: "Jost, sans-serif",
                   fontSize: "13px",
                   fontWeight: 500,
                   color: "#4a6070",

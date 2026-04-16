@@ -39,16 +39,17 @@ const FinalCTASection = () => {
         >
           <h2
             className="font-display mb-6"
-            style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 400, color: "#1a2a3a", lineHeight: 1.1 }}
+            style={{ fontSize: "clamp(40px, 5vw, 58px)", fontWeight: 600, color: "#1a2a3a", lineHeight: 1.1, letterSpacing: "-0.02em" }}
           >
             The next spike is coming. Be ready.
           </h2>
           <p
             className="mb-10"
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: "Jost, sans-serif",
               fontSize: "18px",
               fontWeight: 300,
+              fontStyle: "italic",
               color: "#4a6070",
             }}
           >
