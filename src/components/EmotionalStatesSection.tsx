@@ -1,83 +1,88 @@
 import { motion } from "framer-motion";
-import GradientOrb from "./GradientOrb";
 
-const states = [
+const orbs = [
   {
-    title: "Overwhelmed",
-    description: "Your system is overloaded — heart racing, anxiety rising.",
-    goal: "Calm your body",
-    technique: "Physiological sigh breathing",
-    steps: "inhale → inhale → long exhale",
-    color1: "hsl(350, 70%, 65%)",
-    color2: "hsl(25, 80%, 65%)",
-    animation: "pulse" as const,
+    label: "Overwhelmed",
+    description: "Heart racing, anxiety spike",
+    background:
+      "radial-gradient(circle at 38% 38%, #ffd0d8, #f4a0b0 55%, #e87090)",
+    delay: "0s",
   },
   {
-    title: "Stuck",
-    description: "Your mind is looping — thoughts won't stop.",
-    goal: "Interrupt the loop",
-    technique: "Grounding",
-    steps: "bring attention to senses and surroundings",
-    color1: "hsl(45, 70%, 70%)",
-    color2: "hsl(55, 60%, 60%)",
-    animation: "drift" as const,
+    label: "Stuck",
+    description: "Overthinking, can't stop thoughts",
+    background:
+      "radial-gradient(circle at 38% 38%, #fff0a0, #f5c842 55%, #e8a820)",
+    delay: "0.8s",
   },
   {
-    title: "Numb",
-    description: "You feel disconnected or shut down.",
-    goal: "Re-engage your system",
-    technique: "Rhythmic tapping and sensory activation",
-    steps: "follow a rhythm, engage your senses, reconnect",
-    color1: "hsl(215, 60%, 65%)",
-    color2: "hsl(240, 50%, 70%)",
-    animation: "breathe" as const,
+    label: "Numb",
+    description: "Disconnected, low energy",
+    background:
+      "radial-gradient(circle at 38% 38%, #c8e8f8, #7ab8d8 55%, #4a90b8)",
+    delay: "1.6s",
   },
 ];
 
 const EmotionalStatesSection = () => {
   return (
-    <section id="emotional-states" className="py-32 md:py-48">
+    <section id="emotional-states" className="py-32 md:py-40">
       <div className="mx-auto px-8 md:px-16 max-w-6xl">
-        <div className="space-y-48">
-          {states.map((state, i) => (
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="font-display mb-20 text-center"
+          style={{ fontSize: "36px", fontWeight: 400, color: "#1a2a3a" }}
+        >
+          Built for how you actually feel
+        </motion.h2>
+
+        <div className="flex flex-wrap items-start justify-center gap-12 md:gap-20">
+          {orbs.map((o, i) => (
             <motion.div
-              key={state.title}
-              initial={{ opacity: 0, y: 40 }}
+              key={o.label}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-              className={`grid md:grid-cols-2 gap-20 items-center ${
-                i % 2 === 1 ? "" : ""
-              }`}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="flex flex-col items-center text-center"
+              style={{ width: "180px" }}
             >
-              <div className={`flex justify-center ${i % 2 === 1 ? "md:order-2" : ""}`}>
-                <GradientOrb
-                  color1={state.color1}
-                  color2={state.color2}
-                  size={280}
-                  animation={state.animation}
-                />
-              </div>
-
-              <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
-                  {state.title}
-                </h3>
-                <p className="text-lg text-muted-foreground mb-8">{state.description}</p>
-
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="glass-node">Goal</span>
-                  <span className="text-foreground text-sm">{state.goal}</span>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <span className="glass-node shrink-0">Technique</span>
-                  <div>
-                    <p className="text-foreground text-sm">{state.technique}</p>
-                    <p className="text-muted-foreground text-sm mt-1">{state.steps}</p>
-                  </div>
-                </div>
-              </div>
+              <div
+                className="animate-breathe"
+                style={{
+                  width: "140px",
+                  height: "140px",
+                  borderRadius: "50%",
+                  background: o.background,
+                  boxShadow: "0 12px 40px rgba(26,42,58,0.12)",
+                  animationDelay: o.delay,
+                  marginBottom: "24px",
+                }}
+              />
+              <p
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                  color: "#1a2a3a",
+                  marginBottom: "6px",
+                }}
+              >
+                {o.label}
+              </p>
+              <p
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "12px",
+                  fontWeight: 300,
+                  color: "#4a6070",
+                }}
+              >
+                {o.description}
+              </p>
             </motion.div>
           ))}
         </div>
