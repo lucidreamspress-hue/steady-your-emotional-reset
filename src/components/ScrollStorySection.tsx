@@ -1,71 +1,48 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-
-const sentences = [
-  "Stress hits fast.",
-  "Your heart races,",
-  "thoughts spiral,",
-  "and thinking clearly is impossible.",
-  "What you need is a reset.",
-];
+const words = ["in seconds.", "right now.", "when it spikes.", "without a plan."];
 
 const ScrollStorySection = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
   return (
-    <section ref={containerRef} className="relative" style={{ height: `${sentences.length * 60}vh` }}>
-      <div className="sticky top-0 h-screen flex items-center justify-center">
-        <div className="mx-auto px-8 md:px-16 max-w-3xl">
-          <p className="text-3xl md:text-4xl lg:text-5xl font-serif leading-[1.4] md:leading-[1.35] text-center">
-            {sentences.map((sentence, i) => (
-              <ScrollWord
-                key={i}
-                text={sentence + " "}
-                index={i}
-                total={sentences.length}
-                scrollYProgress={scrollYProgress}
-                isLast={i === sentences.length - 1}
-              />
+    <section
+      className="w-full py-32 md:py-40 px-8 md:px-16 flex flex-col items-center justify-center text-center"
+      style={{ background: "#0f1a24" }}
+    >
+      <h2
+        className="font-display mb-10"
+        style={{
+          fontSize: "clamp(36px, 6vw, 64px)",
+          fontWeight: 300,
+          lineHeight: 1.1,
+          color: "#f0f4f8",
+        }}
+      >
+        Stress hits fast.
+      </h2>
+
+      <div
+        className="font-display flex flex-wrap items-center justify-center gap-x-3"
+        style={{
+          fontSize: "clamp(28px, 4.5vw, 48px)",
+          fontWeight: 300,
+          lineHeight: 1.1,
+          color: "#f0f4f8",
+        }}
+      >
+        <span>Steady helps</span>
+        <span
+          className="relative inline-block overflow-hidden align-bottom"
+          style={{ height: "64px", width: "min(360px, 80vw)" }}
+        >
+          <span className="absolute left-0 top-0 flex flex-col animate-cycle-up" style={{ color: "#7ab8d8" }}>
+            {words.map((w) => (
+              <span key={w} style={{ height: "64px", lineHeight: "64px" }}>
+                {w}
+              </span>
             ))}
-          </p>
-        </div>
+            <span style={{ height: "64px", lineHeight: "64px" }}>{words[0]}</span>
+          </span>
+        </span>
       </div>
     </section>
-  );
-};
-
-interface ScrollWordProps {
-  text: string;
-  index: number;
-  total: number;
-  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
-  isLast: boolean;
-}
-
-const ScrollWord = ({ text, index, total, scrollYProgress, isLast }: ScrollWordProps) => {
-  const start = index / total;
-  const end = (index + 1) / total;
-
-  const opacity = useTransform(
-    scrollYProgress,
-    [Math.max(0, start - 0.02), start, end, Math.min(1, end + 0.02)],
-    [0.1, 1, 1, 0.1]
-  );
-
-  return (
-    <>
-      {isLast && <br />}
-      <motion.span
-        style={{ opacity }}
-        className={isLast ? "font-bold" : ""}
-      >
-        {text}
-      </motion.span>
-    </>
   );
 };
 

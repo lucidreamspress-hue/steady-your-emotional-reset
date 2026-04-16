@@ -1,43 +1,50 @@
 import { motion } from "framer-motion";
-import GradientOrb from "./GradientOrb";
 
 const points = [
-  "Breathing slows your heart rate",
-  "Grounding shifts attention out of loops",
-  "Rhythm re-engages your body",
+  "Breathing slows your heart rate.",
+  "Grounding shifts attention out of loops.",
+  "Rhythm re-engages your body.",
 ];
 
 const ScienceSection = () => {
   return (
-    <section id="science" className="py-32 md:py-48 relative overflow-hidden">
-      {/* Background orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 pointer-events-none">
-        <GradientOrb
-          color1="hsl(240, 40%, 80%)"
-          color2="hsl(280, 30%, 85%)"
-          size={600}
-          animation="breathe"
-        />
-      </div>
+    <section id="science" className="py-32 md:py-40 relative overflow-hidden">
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 pointer-events-none animate-breathe"
+        style={{
+          background: "radial-gradient(circle, #c8e8f8, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
 
       <div className="mx-auto px-8 md:px-16 max-w-5xl relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-          className="grid md:grid-cols-2 gap-20 items-center"
-        >
-          <div>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-12">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+          >
+            <h2
+              className="font-display mb-8"
+              style={{ fontSize: "36px", fontWeight: 400, color: "#1a2a3a", lineHeight: 1.15 }}
+            >
               Built on how your nervous system works
             </h2>
-            <p className="text-sm text-muted-foreground">
+            <p
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: "15px",
+                fontWeight: 300,
+                color: "#4a6070",
+                lineHeight: 1.6,
+              }}
+            >
               These techniques are widely used in stress and anxiety regulation.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             {points.map((point, i) => (
               <motion.p
                 key={point}
@@ -45,13 +52,14 @@ const ScienceSection = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="text-xl md:text-2xl font-serif text-foreground"
+                className="font-display"
+                style={{ fontSize: "22px", fontWeight: 400, color: "#1a2a3a", lineHeight: 1.3 }}
               >
                 {point}
               </motion.p>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

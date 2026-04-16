@@ -29,17 +29,24 @@ const Navbar = () => {
             <a
               href="#"
               onClick={scrollToTop}
-              className="font-mono text-sm tracking-wide text-foreground font-medium hover:opacity-70 transition-opacity cursor-pointer"
+              className="text-sm tracking-wide font-medium hover:opacity-70 transition-opacity cursor-pointer"
+              style={{ color: "#1a2a3a", fontFamily: "Inter, sans-serif" }}
             >
               Steady
             </a>
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-7">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNav(e, link.href)}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors tracking-wide"
+                  className="transition-colors"
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "13px",
+                    fontWeight: 400,
+                    color: "#4a6070",
+                  }}
                 >
                   {link.label}
                 </a>
@@ -47,9 +54,10 @@ const Navbar = () => {
             </div>
             <button
               onClick={() => setOpen(true)}
-              className="btn-glass px-5 py-2 text-xs tracking-wide"
+              className="btn-primary-dark"
+              style={{ padding: "10px 22px", fontSize: "13px" }}
             >
-              Early access
+              Install Steady
             </button>
           </div>
         </div>

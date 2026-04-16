@@ -39,9 +39,9 @@ const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-md border-none glass-surface rounded-2xl">
         <DialogHeader>
-          <DialogTitle className="font-serif text-2xl">Get early access</DialogTitle>
-          <DialogDescription>
-            Be the first to try Steady when it launches.
+          <DialogTitle className="font-display text-2xl" style={{ color: "#1a2a3a", fontWeight: 400 }}>Install Steady</DialogTitle>
+          <DialogDescription style={{ color: "#4a6070" }}>
+            Drop your details and we'll send you the app the moment it's ready.
           </DialogDescription>
         </DialogHeader>
 
@@ -65,9 +65,10 @@ const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
             />
             <button
               type="submit"
-              className="w-full btn-glass py-3.5 text-sm"
+              className="w-full btn-primary-dark"
+              style={{ padding: "16px 32px", fontSize: "15px" }}
             >
-              Join early access
+              Install Steady
             </button>
           </form>
         ) : (
