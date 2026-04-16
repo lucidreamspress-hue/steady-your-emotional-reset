@@ -18,41 +18,55 @@ const HeroSection = () => {
             <h1
               className="font-display text-balance mb-8"
               style={{
-                fontSize: "56px",
-                fontWeight: 300,
+                fontSize: "58px",
+                fontWeight: 600,
                 lineHeight: 1.1,
                 color: "#1a2a3a",
+                letterSpacing: "-0.02em",
               }}
             >
-              Help for the moment you feel overwhelmed.
+              Help for the moment you feel{" "}
+              <span
+                style={{
+                  background:
+                    "linear-gradient(rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.14) 100%)",
+                  borderRadius: "8px",
+                  padding: "2px 12px",
+                  display: "inline",
+                }}
+              >
+                overwhelmed.
+              </span>
             </h1>
             <p
-              className="mb-6 max-w-xl"
+              className="mb-10 max-w-xl"
               style={{
-                fontFamily: "Inter, sans-serif",
-                fontSize: "18px",
+                fontFamily: "Jost, sans-serif",
+                fontSize: "20px",
                 fontWeight: 300,
-                lineHeight: 1.6,
+                lineHeight: 1.65,
                 color: "#4a6070",
               }}
             >
               Steady is a one-tap companion for anxiety, cravings, panic, stress, and emotional overwhelm. It gives you simple, personalized tools to calm the spike, interrupt the spiral, and get through the next few minutes.
             </p>
+            <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
+              Install Steady
+            </button>
             <p
-              className="mb-10 max-w-xl"
+              className="max-w-xl"
               style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "Jost, sans-serif",
                 fontSize: "15px",
                 fontWeight: 300,
+                fontStyle: "italic",
                 lineHeight: 1.6,
                 color: "#4a6070",
+                marginTop: "16px",
               }}
             >
               No long programs. No habit trackers. No complicated self-help. Just one clear action when you need it most.
             </p>
-            <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
-              Install Steady
-            </button>
           </motion.div>
 
           <motion.div
@@ -64,7 +78,7 @@ const HeroSection = () => {
             <img
               src={heroMockup}
               alt="Steady app reset screen on iPhone"
-              className="w-full max-w-[460px] h-auto drop-shadow-2xl"
+              className="w-full max-w-[460px] h-auto drop-shadow-2xl animate-float"
             />
           </motion.div>
         </div>
