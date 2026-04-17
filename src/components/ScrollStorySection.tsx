@@ -1,65 +1,132 @@
-const words = [
-  { text: "in seconds.", color: "#7ab8d8" },
-  { text: "right now.", color: "#f4a0b0" },
-  { text: "when it spikes.", color: "#f5c842" },
-  { text: "without a plan.", color: "#7ab8d8" },
+import { useRef } from "react";
+import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+
+const fragments = [
+  "When your heart races",
+  "and thoughts spiral,",
+  "you don't need instructions—",
+  "you need",
+  "a reset.",
 ];
 
 const ScrollStorySection = () => {
-  return (
-    <section
-      className="w-full py-32 md:py-40 px-8 md:px-16 flex flex-col items-center justify-center text-center"
-      style={{ background: "#0f1a24" }}
-    >
-      <p
-        className="mb-8"
-        style={{
-          fontFamily: "Jost, sans-serif",
-          fontSize: "15px",
-          fontWeight: 300,
-          textTransform: "uppercase",
-          letterSpacing: "0.1em",
-          color: "rgba(255,255,255,0.4)",
-        }}
-      >
-        Stress hits fast.
-      </p>
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
 
+  return (
+    <section ref={containerRef} style={{ height: "500vh", position: "relative" }}>
       <div
-        className="font-display flex flex-wrap items-center justify-center gap-x-4"
         style={{
-          fontSize: "52px",
-          fontWeight: 600,
-          lineHeight: 1.1,
-          letterSpacing: "-0.02em",
-          color: "#ffffff",
+          position: "sticky",
+          top: 0,
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "0 24px",
+          background: "#f0f4f8",
         }}
       >
-        <span>Steady helps</span>
-        <span
-          className="relative inline-block overflow-hidden align-bottom"
-          style={{ height: "68px", width: "min(420px, 85vw)", textAlign: "left" }}
-        >
-          <span className="absolute left-0 top-0 flex flex-col animate-scroll-words">
-            {words.map((w, i) => (
-              <span
+        <div style={{ maxWidth: "880px", width: "100%", textAlign: "center" }}>
+          <p
+            className="font-display"
+            style={{
+              fontSize: "13px",
+              fontWeight: 500,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#4a6070",
+              marginBottom: "32px",
+            }}
+          >
+            Steady
+          </p>
+
+          <div
+            className="font-display"
+            style={{
+              fontSize: "clamp(32px, 5vw, 56px)",
+              fontWeight: 600,
+              lineHeight: 1.25,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            {fragments.map((fragment, i) => (
+              <FragmentWord
                 key={i}
-                style={{
-                  height: "68px",
-                  lineHeight: "68px",
-                  color: w.color,
-                }}
-              >
-                {w.text}
-              </span>
+                text={fragment}
+                index={i}
+                total={fragments.length}
+                scrollYProgress={scrollYProgress}
+              />
             ))}
-            <span style={{ height: "68px", lineHeight: "68px", color: words[0].color }}>
-              {words[0].text}
-            </span>
-          </span>
-        </span>
+          </div>
+
+          <ScrollHint scrollYProgress={scrollYProgress} />
+        </div>
       </div>
     </section>
+  );
+};
+
+const FragmentWord = ({
+  text,
+  index,
+  total,
+  scrollYProgress,
+}: {
+  text: string;
+  index: number;
+  total: number;
+  scrollYProgress: MotionValue<number>;
+}) => {
+  const start = index / total;
+  const end = (index + 1) / total;
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [Math.max(0, start - 0.05), start, end, Math.min(1, end + 0.15)],
+    [0.15, 1, 1, 0.15]
+  );
+
+  const color = useTransform(
+    scrollYProgress,
+    [Math.max(0, start - 0.05), start],
+    ["rgba(26,42,58,0.18)", "rgba(26,42,58,1)"]
+  );
+
+  return (
+    <motion.span style={{ opacity, color, display: "inline" }}>
+      {text}{" "}
+    </motion.span>
+  );
+};
+
+const ScrollHint = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
+  const opacity = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
+  return (
+    <motion.div
+      style={{
+        opacity,
+        marginTop: "48px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "8px",
+        fontFamily: "Jost, sans-serif",
+        fontSize: "12px",
+        fontWeight: 400,
+        letterSpacing: "0.15em",
+        textTransform: "uppercase",
+        color: "#4a6070",
+      }}
+    >
+      <span>scroll</span>
+      <span style={{ fontSize: "16px" }}>↓</span>
+    </motion.div>
   );
 };
 

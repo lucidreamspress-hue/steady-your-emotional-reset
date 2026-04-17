@@ -1,52 +1,61 @@
-import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 const reviews = [
   {
     quote:
       "This is the first app that actually helped in the exact moment I needed it. I opened it during an anxiety spike at work and within a minute I felt less trapped in my own head. It didn't ask me to journal or build a routine. It just helped.",
-    name: "Maya, 28",
+    author: "Maya, 28",
   },
   {
     quote:
       "It felt weirdly human. I used it during a smoking craving and the short breathing + distraction flow actually got me past the urge. It's simple, but in a really thoughtful way.",
-    name: "Daniel, 34",
+    author: "Daniel, 34",
   },
   {
     quote:
       "I love that it doesn't ask anything from me when I'm already overwhelmed. Most wellness apps feel like homework. This one feels like immediate support. Calm design, gentle prompts, and no pressure.",
-    name: "Sophie, 22",
+    author: "Sophie, 22",
   },
   {
     quote:
       "The tools are tiny, which is exactly why I can use them. When I'm spiraling, I can't handle anything complicated. Steady gave me something I could actually do in the moment — and that made all the difference.",
-    name: "Alex, 31",
+    author: "Alex, 31",
   },
 ];
 
 const ReviewsSection = () => {
+  const autoplay = useRef(Autoplay({ delay: 3500, stopOnInteraction: false }));
+  const [emblaRef] = useEmblaCarousel(
+    { loop: true, align: "start", dragFree: true },
+    [autoplay.current]
+  );
+
   return (
-    <section style={{ background: "#f0f4f8", padding: "100px 24px" }}>
-      <div className="mx-auto max-w-5xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+    <section style={{ background: "#f0f4f8", padding: "100px 0" }}>
+      <div className="mx-auto max-w-6xl px-6 md:px-12">
+        <h2
           className="font-display text-center mb-16"
-          style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
+          style={{
+            fontSize: "40px",
+            fontWeight: 600,
+            color: "#1a2a3a",
+            letterSpacing: "-0.02em",
+          }}
         >
           What early users say about Steady
-        </motion.h2>
+        </h2>
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {reviews.map((r, i) => (
-            <motion.div
-              key={r.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="reviews-track flex gap-6 px-6 md:px-12">
+          {[...reviews, ...reviews].map((review, i) => (
+            <div
+              key={i}
+              className="review-card shrink-0"
               style={{
+                width: "420px",
                 background: "#ffffff",
                 borderRadius: "16px",
                 padding: "28px",
@@ -61,7 +70,7 @@ const ReviewsSection = () => {
                   lineHeight: 1.7,
                 }}
               >
-                {r.quote}
+                "{review.quote}"
               </p>
               <p
                 style={{
@@ -72,9 +81,9 @@ const ReviewsSection = () => {
                   marginTop: "16px",
                 }}
               >
-                — {r.name}
+                — {review.author}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

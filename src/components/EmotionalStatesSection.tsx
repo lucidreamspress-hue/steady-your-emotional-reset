@@ -42,7 +42,7 @@ const EmotionalStatesSection = () => {
           Built for how you actually feel
         </motion.h2>
 
-        <div className="flex flex-wrap items-start justify-center gap-12 md:gap-20">
+        <div className="orbs-row flex flex-wrap items-start justify-center gap-12 md:gap-20">
           {orbs.map((o, i) => (
             <motion.div
               key={o.label}
@@ -68,7 +68,8 @@ const EmotionalStatesSection = () => {
               <p
                 className="font-display"
                 style={{
-                  fontSize: "14px",
+                  fontFamily: "'Host Grotesk', sans-serif",
+                  fontSize: "18px",
                   fontWeight: 600,
                   color: "#1a2a3a",
                   letterSpacing: "-0.02em",
@@ -80,9 +81,10 @@ const EmotionalStatesSection = () => {
               <p
                 style={{
                   fontFamily: "Jost, sans-serif",
-                  fontSize: "13px",
+                  fontSize: "16px",
                   fontWeight: 300,
                   color: "#4a6070",
+                  lineHeight: 1.65,
                 }}
               >
                 {o.description}

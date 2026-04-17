@@ -34,7 +34,7 @@ const Navbar = () => {
             >
               Steady
             </a>
-            <div className="hidden md:flex items-center gap-7">
+            <div className="nav-links hidden md:flex items-center gap-7">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -43,7 +43,7 @@ const Navbar = () => {
                   className="transition-colors"
                   style={{
                     fontFamily: "Jost, sans-serif",
-                    fontSize: "13px",
+                    fontSize: "15px",
                     fontWeight: 400,
                     color: "#4a6070",
                   }}

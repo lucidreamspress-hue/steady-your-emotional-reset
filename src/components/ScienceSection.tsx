@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 
 const cards = [
   {
-    num: "01",
+    num: "1",
     color: "#7ab8d8",
     title: "Breathing",
     body: "Physiological sigh breathing activates the parasympathetic nervous system — the body's built-in brake. Double inhale, slow exhale. It works in under 60 seconds.",
   },
   {
-    num: "02",
+    num: "2",
     color: "#f4a0b0",
     title: "Grounding",
     body: "Sensory grounding interrupts the thought loop by shifting attention to the present moment. It's one of the fastest ways to exit an anxiety spiral.",
   },
   {
-    num: "03",
+    num: "3",
     color: "#f5c842",
     title: "Rhythm",
     body: "Rhythmic stimulation — tapping, pacing, breath — reactivates the nervous system when you feel numb or disconnected. It works bottom-up, bypassing overthinking.",
@@ -49,7 +49,7 @@ const ScienceSection = () => {
           Every technique in Steady is grounded in how the nervous system actually responds to stress.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="cards-row grid md:grid-cols-3 gap-6">
           {cards.map((c, i) => (
             <motion.div
               key={c.num}
@@ -64,18 +64,24 @@ const ScienceSection = () => {
                 border: "1px solid rgba(200,215,230,0.6)",
               }}
             >
-              <p
-                className="font-display"
+              <div
                 style={{
-                  fontSize: "13px",
-                  fontWeight: 600,
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "50%",
+                  border: `1.5px solid ${c.color}`,
                   color: c.color,
-                  letterSpacing: "0.1em",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: "Jost, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "13px",
                   marginBottom: "16px",
                 }}
               >
                 {c.num}
-              </p>
+              </div>
               <h3
                 className="font-display mb-3"
                 style={{ fontSize: "22px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
