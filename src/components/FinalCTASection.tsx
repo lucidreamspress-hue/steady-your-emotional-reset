@@ -6,7 +6,7 @@ const FinalCTASection = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="relative py-40 md:py-56 overflow-hidden">
+    <section className="cta-section relative py-40 md:py-56 overflow-hidden">
       <div
         className="absolute inset-0 animate-gradient opacity-40"
         style={{
@@ -38,7 +38,7 @@ const FinalCTASection = () => {
           transition={{ duration: 0.7 }}
         >
           <h2
-            className="font-display mb-6"
+            className="cta-headline font-display mb-6"
             style={{ fontSize: "clamp(40px, 5vw, 58px)", fontWeight: 600, color: "#1a2a3a", lineHeight: 1.1, letterSpacing: "-0.02em" }}
           >
             The next spike is coming. Be ready.

@@ -217,3 +217,27 @@
 .animate-orb-pulse { animation: orb-pulse 6s ease-in-out infinite; }
 .animate-orb-drift { animation: orb-pulse 9s ease-in-out infinite; }
 .animate-orb-breathe { animation: orb-pulse 8s ease-in-out infinite; }
+
+@media (max-width: 768px) {
+  body { overflow-x: hidden; }
+
+  .nav-links { display: none !important; }
+
+  .hero-headline { font-size: 38px !important; }
+  .hero-layout { flex-direction: column !important; padding: 24px !important; }
+  .hero-image { order: 2; margin-top: 32px; }
+
+  .how-it-works-layout { flex-direction: column !important; }
+  .how-it-works-visual { min-height: 320px !important; order: -1; }
+
+  .orbs-row { flex-direction: column !important; align-items: center !important; gap: 32px !important; }
+
+  .cards-row { flex-direction: column !important; }
+
+  .reviews-track .review-card { min-width: 280px !important; width: 280px !important; }
+
+  .cta-headline { font-size: 32px !important; }
+  .cta-section { padding: 60px 24px !important; }
+
+  .btn-primary-dark { width: 100%; max-width: 320px; display: block; text-align: center; }
+}

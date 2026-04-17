@@ -9,14 +9,14 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center pt-28 pb-16">
       <div className="mx-auto px-8 md:px-16 max-w-6xl w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="hero-layout grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
             <h1
-              className="font-display text-balance mb-8"
+              className="hero-headline font-display text-balance mb-8"
               style={{
                 fontSize: "58px",
                 fontWeight: 600,
@@ -73,7 +73,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:justify-end"
+            className="hero-image flex justify-center lg:justify-end"
           >
             <img
               src={heroMockup}
