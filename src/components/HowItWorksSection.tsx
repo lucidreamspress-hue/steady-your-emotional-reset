@@ -11,7 +11,14 @@ const steps = [
 ];
 
 const HowItWorksSection = () => {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeImage, setActiveImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImage((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     [howItWorksMockup, howItWorksMockup2, howItWorksMockup3].forEach((src) => {
@@ -21,76 +28,62 @@ const HowItWorksSection = () => {
   }, []);
 
   return (
-    <section id="how-it-works" className="py-16 md:py-24">
+    <section id="how-it-works" className="py-12 md:py-16">
       <div className="mx-auto px-8 md:px-16 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="font-display mb-10"
+          className="font-display mb-6"
           style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
         >
           How it works
         </motion.h2>
 
-        <div className="how-it-works-layout grid lg:grid-cols-2 gap-16 items-center">
-          <div className="hidden md:block space-y-8">
-            {steps.map((step, i) => {
-              const isActive = activeStep === i;
-              return (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  onMouseEnter={() => setActiveStep(i)}
-                  className="flex items-start gap-5 cursor-pointer transition-all duration-300"
-                  style={
-                    isActive
-                      ? {
-                          background: "rgba(255, 255, 255, 0.55)",
-                          backdropFilter: "blur(16px)",
-                          WebkitBackdropFilter: "blur(16px)",
-                          border: "1px solid rgba(255, 255, 255, 0.75)",
-                          borderRadius: "16px",
-                          padding: "20px",
-                          boxShadow: "0 4px 24px rgba(26, 42, 58, 0.06)",
-                          opacity: 1,
-                        }
-                      : {
-                          background: "transparent",
-                          border: "none",
-                          borderRadius: "16px",
-                          padding: "8px 0",
-                          opacity: 0.38,
-                        }
-                  }
-                >
-                  <div className="glass-number shrink-0">{step.number}</div>
-                  <div>
-                    <h3
-                      className="font-display mb-2"
-                      style={{ fontSize: "22px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
-                    >
-                      {step.title}
-                    </h3>
-                    <p
-                      style={{
-                        fontFamily: "Jost, sans-serif",
-                        fontSize: "17px",
-                        fontWeight: 300,
-                        color: "#4a6070",
-                        lineHeight: 1.7,
-                      }}
-                    >
-                      {step.description}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+        <div className="how-it-works-layout grid lg:grid-cols-2 gap-8 items-center">
+          <div className="hidden md:block">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="flex items-start gap-5"
+                style={{
+                  background: "rgba(255, 255, 255, 0.55)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  border: "1px solid rgba(255, 255, 255, 0.75)",
+                  borderRadius: "16px",
+                  padding: "20px",
+                  marginBottom: "12px",
+                  boxShadow: "0 4px 24px rgba(26, 42, 58, 0.06)",
+                }}
+              >
+                <div className="glass-number shrink-0">{step.number}</div>
+                <div>
+                  <h3
+                    className="font-display mb-2"
+                    style={{ fontSize: "22px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "Jost, sans-serif",
+                      fontSize: "17px",
+                      fontWeight: 300,
+                      color: "#4a6070",
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    {step.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           <div className="md:hidden space-y-6">
@@ -137,10 +130,10 @@ const HowItWorksSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="how-it-works-visual hidden md:flex justify-center lg:justify-end w-full lg:min-h-[680px] items-center"
+            className="how-it-works-visual hidden md:flex justify-center lg:justify-end w-full lg:min-h-[640px] items-center"
           >
             <AnimatePresence mode="wait">
-              {activeStep === 0 && (
+              {activeImage === 0 && (
                 <motion.img
                   key="step-0"
                   /* STEP 0 IMAGE — replace src to update */
@@ -150,10 +143,10 @@ const HowItWorksSection = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full max-w-[520px] h-auto drop-shadow-2xl"
+                  className="w-full max-w-[560px] h-auto drop-shadow-2xl"
                 />
               )}
-              {activeStep === 1 && (
+              {activeImage === 1 && (
                 <motion.img
                   key="step-1"
                   /* STEP 1 IMAGE — replace src to update */
@@ -163,10 +156,10 @@ const HowItWorksSection = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full max-w-[520px] h-auto drop-shadow-2xl"
+                  className="w-full max-w-[560px] h-auto drop-shadow-2xl"
                 />
               )}
-              {activeStep === 2 && (
+              {activeImage === 2 && (
                 <motion.img
                   key="step-2"
                   /* STEP 2 IMAGE — replace src to update */
@@ -176,7 +169,7 @@ const HowItWorksSection = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full max-w-[520px] h-auto drop-shadow-2xl"
+                  className="w-full max-w-[560px] h-auto drop-shadow-2xl"
                 />
               )}
             </AnimatePresence>

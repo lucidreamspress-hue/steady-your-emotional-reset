@@ -86,7 +86,10 @@ const EmotionalStatesSection = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 textAlign: "center",
-                gap: "16px",
+                height: "100%",
+                minHeight: "320px",
+                justifyContent: "space-between",
+                gap: 0,
               }}
             >
               <div
@@ -98,6 +101,7 @@ const EmotionalStatesSection = () => {
                   background: s.orbBackground,
                   boxShadow: s.orbShadow,
                   animationDelay: s.orbDelay,
+                  flexShrink: 0,
                 }}
               />
               <p
@@ -124,15 +128,7 @@ const EmotionalStatesSection = () => {
               >
                 {s.feeling}
               </p>
-              <div
-                style={{
-                  width: "40px",
-                  height: "1px",
-                  background: "rgba(26,42,58,0.12)",
-                  margin: "8px auto",
-                }}
-              />
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={s.accentColor} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={s.accentColor} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ margin: "auto 0" }}>
                 <path d="M12 5v14" />
                 <path d="M19 12l-7 7-7-7" />
               </svg>
@@ -157,6 +153,7 @@ const EmotionalStatesSection = () => {
                   color: "#4a6070",
                   lineHeight: 1.65,
                   marginTop: "8px",
+                  flex: 1,
                 }}
               >
                 {s.help}
