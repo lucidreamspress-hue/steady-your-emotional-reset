@@ -61,6 +61,11 @@ const ReviewsSection = () => {
                 padding: "28px",
               }}
             >
+              <div style={{ display: "flex", gap: "3px", marginBottom: "12px" }}>
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} style={{ color: "#f5c842", fontSize: "14px" }}>★</span>
+                ))}
+              </div>
               <p
                 style={{
                   fontFamily: "Jost, sans-serif",

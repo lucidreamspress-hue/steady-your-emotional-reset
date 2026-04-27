@@ -16,7 +16,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
           >
             <h1
-              className="hero-headline font-display text-balance mb-8"
+              className="hero-headline font-display text-balance mb-6"
               style={{
                 fontSize: "58px",
                 fontWeight: 600,
@@ -25,18 +25,7 @@ const HeroSection = () => {
                 letterSpacing: "-0.02em",
               }}
             >
-              Help for the moment you feel{" "}
-              <span
-                style={{
-                  background:
-                    "linear-gradient(rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.14) 100%)",
-                  borderRadius: "8px",
-                  padding: "2px 12px",
-                  display: "inline",
-                }}
-              >
-                overwhelmed.
-              </span>
+              One tap.<br />One reset.<br />Right now.
             </h1>
             <p
               className="mb-10 max-w-xl"
@@ -48,7 +37,7 @@ const HeroSection = () => {
                 color: "#4a6070",
               }}
             >
-              Steady is a one-tap companion for anxiety, cravings, panic, stress, and emotional overwhelm. It gives you simple, personalized tools to calm the spike, interrupt the spiral, and get through the next few minutes.
+              When anxiety spikes, a craving hits, or panic sets in — Steady gives you one clear action to get through the next 60 seconds.
             </p>
             <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
               Install Steady
@@ -73,12 +62,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hero-image flex justify-center lg:justify-end"
+            className="hero-image flex justify-center"
           >
             <img
               src={heroMockup}
               alt="Steady app reset screen on iPhone"
-              className="w-full max-w-[460px] h-auto drop-shadow-2xl animate-float"
+              className="w-full max-w-[560px] h-auto drop-shadow-2xl animate-float"
             />
           </motion.div>
         </div>
