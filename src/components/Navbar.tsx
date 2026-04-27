@@ -4,7 +4,7 @@ import EarlyAccessModal from "./EarlyAccessModal";
 const navLinks = [
   { label: "How it works", href: "#how-it-works" },
   { label: "Emotional states", href: "#emotional-states" },
-  { label: "Science", href: "#science" },
+  { label: "Science", href: "#solution" },
 ];
 
 const Navbar = () => {
@@ -52,13 +52,30 @@ const Navbar = () => {
                 </a>
               ))}
             </div>
-            <button
-              onClick={() => setOpen(true)}
-              className="btn-primary-dark"
-              style={{ padding: "10px 22px", fontSize: "13px" }}
+            <div className="hidden md:block">
+              <button
+                onClick={() => setOpen(true)}
+                className="btn-primary-dark"
+                style={{ padding: "10px 22px", fontSize: "13px" }}
+              >
+                Install Steady
+              </button>
+            </div>
+            <a
+              className="md:hidden"
+              href="#install"
+              onClick={(e) => { e.preventDefault(); setOpen(true); }}
+              style={{
+                fontFamily: "Jost, sans-serif",
+                fontSize: "15px",
+                fontWeight: 500,
+                color: "#1a2a3a",
+                textDecoration: "none",
+                marginLeft: "auto",
+              }}
             >
-              Install Steady
-            </button>
+              Install
+            </a>
           </div>
         </div>
       </nav>
