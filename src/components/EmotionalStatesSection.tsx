@@ -41,7 +41,7 @@ const states = [
 
 const EmotionalStatesSection = () => {
   return (
-    <section id="emotional-states" className="py-32 md:py-40">
+    <section id="emotional-states" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
       <div className="mx-auto px-8 md:px-16 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,14 @@ const EmotionalStatesSection = () => {
           Steady recognizes what you're feeling and gives you one simple technique — matched to your state — in real time.
         </p>
 
-        <div className="orbs-row grid md:grid-cols-3 gap-8">
+        <div
+          className="orbs-row"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: "24px",
+          }}
+        >
           {states.map((s, i) => (
             <motion.div
               key={s.label}
@@ -86,10 +93,6 @@ const EmotionalStatesSection = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 textAlign: "center",
-                height: "100%",
-                minHeight: "320px",
-                justifyContent: "space-between",
-                gap: 0,
               }}
             >
               <div
@@ -112,7 +115,8 @@ const EmotionalStatesSection = () => {
                   fontWeight: 600,
                   color: "#1a2a3a",
                   letterSpacing: "-0.02em",
-                  margin: 0,
+                  marginTop: "24px",
+                  marginBottom: "6px",
                 }}
               >
                 {s.label}
@@ -124,13 +128,14 @@ const EmotionalStatesSection = () => {
                   fontWeight: 300,
                   color: "#4a6070",
                   margin: 0,
+                  marginBottom: "28px",
                 }}
               >
                 {s.feeling}
               </p>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={s.accentColor} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ margin: "auto 0" }}>
-                <path d="M12 5v14" />
-                <path d="M19 12l-7 7-7-7" />
+              <svg width="24" height="36" viewBox="0 0 24 36" fill="none" stroke={s.accentColor} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ marginBottom: "28px" }}>
+                <path d="M12 2v26" />
+                <path d="M5 24l7 7 7-7" />
               </svg>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <span
@@ -153,7 +158,6 @@ const EmotionalStatesSection = () => {
                   color: "#4a6070",
                   lineHeight: 1.65,
                   marginTop: "8px",
-                  flex: 1,
                 }}
               >
                 {s.help}
