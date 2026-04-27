@@ -61,21 +61,24 @@ const Navbar = () => {
                 Install Steady
               </button>
             </div>
-            <a
+            <button
+              type="button"
               className="md:hidden"
-              href="#install"
-              onClick={(e) => { e.preventDefault(); setOpen(true); }}
+              onClick={() => setOpen(true)}
               style={{
                 fontFamily: "Jost, sans-serif",
-                fontSize: "15px",
+                fontSize: "13px",
                 fontWeight: 500,
                 color: "#1a2a3a",
-                textDecoration: "none",
-                marginLeft: "auto",
+                background: "rgba(26,42,58,0.07)",
+                border: "1px solid rgba(26,42,58,0.14)",
+                borderRadius: "100px",
+                padding: "7px 16px",
+                cursor: "pointer",
               }}
             >
               Install
-            </a>
+            </button>
           </div>
         </div>
       </nav>

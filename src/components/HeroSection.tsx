@@ -7,7 +7,7 @@ const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section className="min-h-screen flex items-center pt-20 pb-10 md:pt-28 md:pb-16">
+    <section className="min-h-screen flex items-center" style={{ paddingTop: "80px", paddingBottom: "48px" }}>
       <div className="mx-auto px-8 md:px-16 max-w-6xl w-full">
         <div className="hero-layout grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -70,7 +70,8 @@ const HeroSection = () => {
             <img
               src={heroMockup}
               alt="Steady app reset screen on iPhone"
-              className="w-full max-w-[560px] h-auto drop-shadow-2xl animate-float"
+              className="w-full h-auto drop-shadow-2xl animate-float"
+              style={{ maxWidth: "520px" }}
             />
           </motion.div>
 

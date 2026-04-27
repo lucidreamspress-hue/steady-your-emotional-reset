@@ -22,18 +22,33 @@ const FinalCTASection = () => {
           height: "100%",
           objectFit: "cover",
           zIndex: 0,
+          filter: "blur(2px) brightness(0.78)",
+          transform: "scale(1.05)",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "220px",
+          zIndex: 1,
+          background: "linear-gradient(to bottom, #f0f4f8 0%, rgba(240,244,248,0) 100%)",
+          pointerEvents: "none",
         }}
       />
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: "rgba(0,0,0,0.25)",
-          zIndex: 0,
+          background: "rgba(0,0,0,0.18)",
+          zIndex: 1,
+          pointerEvents: "none",
         }}
       />
 
-      <div style={{ position: "relative", zIndex: 1 }}>
+      <div style={{ position: "relative", zIndex: 2 }}>
         <div className="mx-auto px-8 md:px-16 max-w-3xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

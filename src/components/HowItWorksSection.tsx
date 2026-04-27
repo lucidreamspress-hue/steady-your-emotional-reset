@@ -28,15 +28,15 @@ const HowItWorksSection = () => {
   }, []);
 
   return (
-    <section id="how-it-works" className="py-12 md:py-16">
+    <section id="how-it-works" style={{ paddingTop: "64px", paddingBottom: "48px" }}>
       <div className="mx-auto px-8 md:px-16 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="font-display mb-6"
-          style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
+          className="font-display"
+          style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em", marginBottom: "32px" }}
         >
           How it works
         </motion.h2>
@@ -52,14 +52,7 @@ const HowItWorksSection = () => {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="flex items-start gap-5"
                 style={{
-                  background: "rgba(255, 255, 255, 0.55)",
-                  backdropFilter: "blur(16px)",
-                  WebkitBackdropFilter: "blur(16px)",
-                  border: "1px solid rgba(255, 255, 255, 0.75)",
-                  borderRadius: "16px",
-                  padding: "20px",
-                  marginBottom: "12px",
-                  boxShadow: "0 4px 24px rgba(26, 42, 58, 0.06)",
+                  marginBottom: "20px",
                 }}
               >
                 <div className="glass-number shrink-0">{step.number}</div>
@@ -130,7 +123,8 @@ const HowItWorksSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="how-it-works-visual hidden md:flex justify-center lg:justify-end w-full lg:min-h-[640px] items-center"
+            className="how-it-works-visual hidden md:flex justify-center lg:justify-end w-full items-center"
+            style={{ minHeight: "600px" }}
           >
             <AnimatePresence mode="wait">
               {activeImage === 0 && (
@@ -143,7 +137,8 @@ const HowItWorksSection = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full max-w-[560px] h-auto drop-shadow-2xl"
+                  className="w-full h-auto drop-shadow-2xl"
+                  style={{ maxWidth: "520px" }}
                 />
               )}
               {activeImage === 1 && (
@@ -156,7 +151,8 @@ const HowItWorksSection = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full max-w-[560px] h-auto drop-shadow-2xl"
+                  className="w-full h-auto drop-shadow-2xl"
+                  style={{ maxWidth: "520px" }}
                 />
               )}
               {activeImage === 2 && (
@@ -169,7 +165,8 @@ const HowItWorksSection = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full max-w-[560px] h-auto drop-shadow-2xl"
+                  className="w-full h-auto drop-shadow-2xl"
+                  style={{ maxWidth: "520px" }}
                 />
               )}
             </AnimatePresence>
