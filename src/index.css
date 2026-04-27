@@ -241,3 +241,14 @@
 
   .btn-primary-dark { width: 100%; max-width: 320px; display: block; text-align: center; }
 }
+
+@media (max-width: 768px) {
+  section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  .py-32, .py-40, .md\:py-40 {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+}

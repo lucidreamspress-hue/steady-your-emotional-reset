@@ -132,25 +132,11 @@ const EmotionalStatesSection = () => {
                   margin: "8px auto",
                 }}
               />
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={s.accentColor} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 5v14" />
+                <path d="M19 12l-7 7-7-7" />
+              </svg>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span
-                  style={{
-                    width: "26px",
-                    height: "26px",
-                    borderRadius: "50%",
-                    border: `1.5px solid ${s.accentColor}`,
-                    color: s.accentColor,
-                    fontFamily: "Jost, sans-serif",
-                    fontWeight: 500,
-                    fontSize: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginRight: "8px",
-                  }}
-                >
-                  {s.techniqueCircle}
-                </span>
                 <span
                   style={{
                     fontFamily: "'Host Grotesk', sans-serif",
