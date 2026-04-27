@@ -27,11 +27,23 @@ const SolutionSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="font-display mb-16"
+          className="font-display mb-6"
           style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", lineHeight: 1.15, letterSpacing: "-0.02em" }}
         >
-          Designed for the moments that don't wait
+          Small tools. Immediate relief.
         </motion.h2>
+        <p
+          className="mb-16 max-w-2xl"
+          style={{
+            fontFamily: "Jost, sans-serif",
+            fontSize: "18px",
+            fontWeight: 300,
+            color: "#4a6070",
+            lineHeight: 1.65,
+          }}
+        >
+          No learning curve. No setup. Each tool takes under 60 seconds and works with your nervous system, not against it.
+        </p>
 
         <div className="cards-row grid md:grid-cols-3 gap-6">
           {features.map((f, i) => (
