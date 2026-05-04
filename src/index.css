@@ -253,4 +253,7 @@ html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
     padding-top: 48px !important;
     padding-bottom: 48px !important;
   }
+  .hero-section, section:first-of-type {
+    padding-top: clamp(64px, 10vw, 80px) !important;
+  }
 }
