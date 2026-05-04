@@ -13,7 +13,6 @@ interface Props {
 }
 
 const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -34,7 +33,7 @@ const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim() && email.trim()) {
+    if (email.trim()) {
       setSubmitted(true);
     }
   };
@@ -44,7 +43,6 @@ const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
     if (!val) {
       setTimeout(() => {
         setSubmitted(false);
-        setName("");
         setEmail("");
       }, 300);
     }
@@ -54,22 +52,14 @@ const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-md border-none glass-surface rounded-2xl">
         <DialogHeader>
-          <DialogTitle className="font-display text-2xl" style={{ color: "#1a2a3a", fontWeight: 400 }}>Install Steady</DialogTitle>
+          <DialogTitle className="font-display text-2xl" style={{ color: "#1a2a3a", fontWeight: 400 }}>Download for iOS</DialogTitle>
           <DialogDescription style={{ color: "#4a6070" }}>
-            Drop your details and we'll send you the app the moment it's ready.
+            Join the early access list. We'll email you when Steady is ready.
           </DialogDescription>
         </DialogHeader>
 
         {!submitted ? (
           <form onSubmit={handleSubmit} className="space-y-4 mt-2">
-            <input
-              type="text"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Your name"
-              className="w-full px-4 py-3 rounded-xl bg-secondary/60 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 text-sm border border-border/30"
-            />
             <input
               type="email"
               required
@@ -83,7 +73,7 @@ const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
               className="w-full btn-primary-dark"
               style={{ padding: "16px 32px", fontSize: "15px" }}
             >
-              Install Steady
+              Download for iOS
             </button>
           </form>
         ) : (

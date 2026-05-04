@@ -58,7 +58,7 @@ const Navbar = () => {
                 className="btn-primary-dark"
                 style={{ padding: "10px 22px", fontSize: "13px" }}
               >
-                Install Steady
+                Download for iOS
               </button>
             </div>
             <button
