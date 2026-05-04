@@ -131,7 +131,7 @@ const HowItWorksSection = () => {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="how-it-works-visual hidden md:flex justify-center lg:justify-end w-full items-center"
-            style={{ minHeight: "600px" }}
+            style={{ minHeight: "720px" }}
           >
             <AnimatePresence mode="wait">
               {activeImage === 0 && (
@@ -145,7 +145,7 @@ const HowItWorksSection = () => {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
                   className="w-full h-auto drop-shadow-2xl"
-                  style={{ maxWidth: "520px" }}
+                  style={{ maxWidth: "680px" }}
                 />
               )}
               {activeImage === 1 && (
@@ -159,7 +159,7 @@ const HowItWorksSection = () => {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
                   className="w-full h-auto drop-shadow-2xl"
-                  style={{ maxWidth: "520px" }}
+                  style={{ maxWidth: "680px" }}
                 />
               )}
               {activeImage === 2 && (
@@ -173,7 +173,7 @@ const HowItWorksSection = () => {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
                   className="w-full h-auto drop-shadow-2xl"
-                  style={{ maxWidth: "520px" }}
+                  style={{ maxWidth: "680px" }}
                 />
               )}
             </AnimatePresence>
