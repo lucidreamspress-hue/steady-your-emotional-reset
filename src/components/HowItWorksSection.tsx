@@ -1,5 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import howItWorksMockup from "@/assets/how-it-works-mockup.png";
 import howItWorksMockup2 from "@/assets/how-it-works-mockup-2.png";
 import howItWorksMockup3 from "@/assets/how-it-works-mockup-3.png";
@@ -12,6 +14,11 @@ const steps = [
 
 const HowItWorksSection = () => {
   const [activeImage, setActiveImage] = useState(0);
+  const autoplayRef = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
+  const [mobileEmblaRef] = useEmblaCarousel(
+    { loop: true, align: "center" },
+    [autoplayRef.current]
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,7 +35,7 @@ const HowItWorksSection = () => {
   }, []);
 
   return (
-    <section id="how-it-works" style={{ paddingTop: "64px", paddingBottom: "48px" }}>
+    <section id="how-it-works" style={{ paddingTop: "48px", paddingBottom: "48px" }}>
       <div className="mx-auto px-8 md:px-16 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -36,7 +43,7 @@ const HowItWorksSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="font-display"
-          style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em", marginBottom: "32px" }}
+          style={{ fontSize: "40px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em", marginBottom: "16px" }}
         >
           How it works
         </motion.h2>
