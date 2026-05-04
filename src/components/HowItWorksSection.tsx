@@ -86,43 +86,68 @@ const HowItWorksSection = () => {
             ))}
           </div>
 
-          <div className="md:hidden space-y-6">
-            {steps.map((step) => (
-              <div
-                key={step.number}
-                className="flex items-start gap-5"
-                style={{
-                  background: "rgba(255, 255, 255, 0.55)",
-                  backdropFilter: "blur(16px)",
-                  WebkitBackdropFilter: "blur(16px)",
-                  border: "1px solid rgba(255, 255, 255, 0.75)",
-                  borderRadius: "16px",
-                  padding: "20px",
-                  boxShadow: "0 4px 24px rgba(26, 42, 58, 0.06)",
-                }}
-              >
-                <div className="glass-number shrink-0">{step.number}</div>
-                <div>
-                  <h3
-                    className="font-display mb-2"
-                    style={{ fontSize: "22px", fontWeight: 600, color: "#1a2a3a", letterSpacing: "-0.02em" }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p
+          <div className="md:hidden overflow-hidden" ref={mobileEmblaRef}>
+            <div className="flex">
+              {steps.map((step, i) => {
+                const img = [howItWorksMockup, howItWorksMockup2, howItWorksMockup3][i];
+                return (
+                  <div
+                    key={step.number}
                     style={{
-                      fontFamily: "Jost, sans-serif",
-                      fontSize: "17px",
-                      fontWeight: 300,
-                      color: "#4a6070",
-                      lineHeight: 1.7,
+                      flex: "0 0 auto",
+                      minWidth: "85vw",
+                      marginRight: "16px",
+                      borderRadius: "20px",
+                      overflow: "hidden",
+                      background: "rgba(255,255,255,0.55)",
+                      backdropFilter: "blur(16px)",
+                      WebkitBackdropFilter: "blur(16px)",
+                      border: "1px solid rgba(255,255,255,0.75)",
                     }}
                   >
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+                    <img
+                      src={img}
+                      alt={step.title}
+                      style={{
+                        width: "100%",
+                        height: "340px",
+                        objectFit: "contain",
+                        objectPosition: "center",
+                        background: "rgba(240,244,248,0.5)",
+                      }}
+                    />
+                    <div style={{ padding: "24px" }}>
+                      <div className="glass-number">{step.number}</div>
+                      <h3
+                        className="font-display"
+                        style={{
+                          fontFamily: "'Host Grotesk', sans-serif",
+                          fontSize: "18px",
+                          fontWeight: 600,
+                          color: "#1a2a3a",
+                          marginBottom: "6px",
+                          marginTop: "12px",
+                          letterSpacing: "-0.02em",
+                        }}
+                      >
+                        {step.title}
+                      </h3>
+                      <p
+                        style={{
+                          fontFamily: "Jost, sans-serif",
+                          fontSize: "15px",
+                          fontWeight: 300,
+                          color: "#4a6070",
+                          lineHeight: 1.65,
+                        }}
+                      >
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <motion.div
