@@ -75,7 +75,7 @@ const HeroSection = () => {
             />
           </motion.div>
 
-          <div className="md:hidden order-3">
+          <div className="md:hidden order-3" style={{ paddingTop: "0px" }}>
             <p
               className="mb-8 max-w-xl"
               style={{
@@ -89,7 +89,7 @@ const HeroSection = () => {
               When anxiety spikes, a craving hits, or panic sets in — Steady gives you one clear action to get through the next 60 seconds.
             </p>
             <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
-              Install Steady
+              Download for iOS
             </button>
             <p
               className="max-w-xl"
