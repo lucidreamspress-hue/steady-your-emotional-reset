@@ -60,7 +60,9 @@ const FinalCTASection = () => {
               className="cta-headline font-display mb-6"
               style={{ fontSize: "clamp(40px, 5vw, 58px)", fontWeight: 600, color: "#ffffff", lineHeight: 1.1, letterSpacing: "-0.02em" }}
             >
-              You already know what it feels like to spiral. Now you have a way out.
+              When things spike, you don't need to figure it out.
+              <br />
+              Just tap and follow.
             </h2>
             <p
               className="mb-10"
@@ -95,7 +97,7 @@ const FinalCTASection = () => {
               onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.88)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "#ffffff")}
             >
-              Install Steady
+              Download for iOS
             </button>
           </motion.div>
         </div>
