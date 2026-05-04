@@ -7,7 +7,7 @@ const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section className="min-h-screen flex items-center" style={{ paddingTop: "80px", paddingBottom: "48px" }}>
+    <section className="min-h-screen flex items-center" style={{ paddingTop: "clamp(64px, 10vw, 80px)", paddingBottom: "48px" }}>
       <div className="mx-auto px-8 md:px-16 max-w-6xl w-full">
         <div className="hero-layout grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -42,7 +42,7 @@ const HeroSection = () => {
                 When anxiety spikes, a craving hits, or panic sets in — Steady gives you one clear action to get through the next 60 seconds.
               </p>
               <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
-                Install Steady
+                Download for iOS
               </button>
               <p
                 className="max-w-xl"
@@ -71,7 +71,7 @@ const HeroSection = () => {
               src={heroMockup}
               alt="Steady app reset screen on iPhone"
               className="w-full h-auto drop-shadow-2xl animate-float"
-              style={{ maxWidth: "520px" }}
+              style={{ maxWidth: "600px" }}
             />
           </motion.div>
 
