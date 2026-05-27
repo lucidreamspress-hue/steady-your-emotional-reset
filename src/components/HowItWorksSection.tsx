@@ -86,17 +86,17 @@ const HowItWorksSection = () => {
             ))}
           </div>
 
-          <div className="md:hidden overflow-hidden" ref={mobileEmblaRef}>
-            <div className="flex">
+          <div className="md:hidden" style={{ overflow: "hidden", width: "100%", paddingLeft: "0px", paddingRight: "0px", marginLeft: "0px", marginRight: "0px" }}>
+            <div ref={mobileEmblaRef} style={{ overflow: "hidden", width: "100%" }}>
+            <div style={{ display: "flex", gap: "12px", paddingLeft: "20px", paddingRight: "20px" }}>
               {steps.map((step, i) => {
                 const img = [howItWorksMockup, howItWorksMockup2, howItWorksMockup3][i];
                 return (
                   <div
                     key={step.number}
                     style={{
-                      flex: "0 0 auto",
-                      minWidth: "85vw",
-                      marginRight: "16px",
+                      minWidth: "calc(100vw - 64px)",
+                      flexShrink: 0,
                       borderRadius: "20px",
                       overflow: "hidden",
                       background: "rgba(255,255,255,0.55)",
@@ -110,10 +110,11 @@ const HowItWorksSection = () => {
                       alt={step.title}
                       style={{
                         width: "100%",
-                        height: "340px",
+                        height: "300px",
                         objectFit: "contain",
                         objectPosition: "center",
                         background: "rgba(240,244,248,0.5)",
+                        display: "block",
                       }}
                     />
                     <div style={{ padding: "24px" }}>
@@ -147,6 +148,7 @@ const HowItWorksSection = () => {
                   </div>
                 );
               })}
+            </div>
             </div>
           </div>
 
