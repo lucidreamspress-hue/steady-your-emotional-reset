@@ -35,7 +35,7 @@ const HowItWorksSection = () => {
   }, []);
 
   return (
-    <section id="how-it-works" style={{ paddingTop: "48px", paddingBottom: "48px" }}>
+    <section id="how-it-works" className="py-12 md:py-16">
       <div className="mx-auto px-8 md:px-16 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

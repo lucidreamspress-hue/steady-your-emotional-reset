@@ -7,9 +7,9 @@ const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section style={{ display: "flex", alignItems: "flex-start", paddingTop: "0px", paddingBottom: "48px" }}>
+    <section className="flex items-center pt-28 pb-16 md:min-h-screen">
       <div className="mx-auto px-8 md:px-16 max-w-6xl w-full">
-        <div className="hero-layout hidden md:grid lg:grid-cols-2 gap-16" style={{ minHeight: "100svh", alignItems: "center" }}>
+        <div className="hero-layout hidden md:grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
