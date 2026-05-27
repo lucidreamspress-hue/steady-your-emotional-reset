@@ -8,8 +8,8 @@ const FinalCTASection = () => {
 
   return (
     <section
-      className="cta-section relative py-40 md:py-56 overflow-hidden"
-      style={{ position: "relative", overflow: "hidden" }}
+      className="cta-section py-40 md:py-56"
+      style={{ position: "relative", overflow: "hidden", isolation: "isolate" }}
     >
       <img
         src={desertBg}
@@ -57,8 +57,8 @@ const FinalCTASection = () => {
             transition={{ duration: 0.7 }}
           >
             <h2
-              className="cta-headline font-display mb-6"
-              style={{ fontSize: "clamp(40px, 5vw, 58px)", fontWeight: 600, color: "#ffffff", lineHeight: 1.1, letterSpacing: "-0.02em" }}
+              className="cta-headline font-display"
+              style={{ fontSize: "clamp(40px, 5vw, 58px)", fontWeight: 600, color: "#ffffff", lineHeight: 1.1, letterSpacing: "-0.02em", maxWidth: "700px", margin: "0 auto 20px", textWrap: "balance" }}
             >
               When things spike, you don't need to figure it out.
               <br />
