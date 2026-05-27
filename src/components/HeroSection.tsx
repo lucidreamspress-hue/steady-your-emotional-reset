@@ -7,9 +7,9 @@ const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section className="min-h-screen flex items-center" style={{ paddingTop: "clamp(64px, 10vw, 80px)", paddingBottom: "48px" }}>
+    <section style={{ display: "flex", alignItems: "flex-start", paddingTop: "0px", paddingBottom: "48px" }}>
       <div className="mx-auto px-8 md:px-16 max-w-6xl w-full">
-        <div className="hero-layout grid lg:grid-cols-2 gap-16 items-center">
+        <div className="hero-layout hidden md:grid lg:grid-cols-2 gap-16" style={{ minHeight: "100svh", alignItems: "center" }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,9 +74,30 @@ const HeroSection = () => {
               style={{ maxWidth: "600px" }}
             />
           </motion.div>
+        </div>
 
-          <div className="md:hidden order-3" style={{ paddingTop: "0px" }}>
-            <p
+        <div className="md:hidden" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", paddingTop: "16px", width: "100%" }}>
+          <h1
+            className="hero-headline font-display text-balance"
+            style={{
+              fontSize: "42px",
+              fontWeight: 600,
+              lineHeight: 1.1,
+              color: "#1a2a3a",
+              letterSpacing: "-0.02em",
+              marginBottom: "8px",
+              textAlign: "center",
+            }}
+          >
+            One tap.<br />One reset.<br />Right now.
+          </h1>
+          <img
+            src={heroMockup}
+            alt="Steady app reset screen on iPhone"
+            className="h-auto drop-shadow-2xl animate-float"
+            style={{ width: "90%", maxWidth: "380px", marginBottom: "12px" }}
+          />
+          <p
               className="mb-8 max-w-xl"
               style={{
                 fontFamily: "Jost, sans-serif",
@@ -84,6 +105,7 @@ const HeroSection = () => {
                 fontWeight: 300,
                 lineHeight: 1.65,
                 color: "#4a6070",
+                textAlign: "center",
               }}
             >
               When anxiety spikes, a craving hits, or panic sets in — Steady gives you one clear action to get through the next 60 seconds.
@@ -101,11 +123,11 @@ const HeroSection = () => {
                 lineHeight: 1.6,
                 color: "#4a6070",
                 marginTop: "16px",
+                textAlign: "center",
               }}
             >
               No long programs. No habit trackers. No complicated self-help. Just one clear action when you need it most.
             </p>
-          </div>
         </div>
       </div>
       <EarlyAccessModal open={modalOpen} onOpenChange={setModalOpen} />
