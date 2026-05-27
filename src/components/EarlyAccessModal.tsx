@@ -50,7 +50,10 @@ const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-md border-none glass-surface rounded-2xl">
+      <DialogContent
+        className="border-none glass-surface rounded-2xl"
+        style={{ maxWidth: "360px", width: "calc(100vw - 48px)", margin: "0 auto", padding: "32px 28px" }}
+      >
         <DialogHeader>
           <DialogTitle className="font-display text-2xl" style={{ color: "#1a2a3a", fontWeight: 400 }}>Download for iOS</DialogTitle>
           <DialogDescription style={{ color: "#4a6070" }}>
