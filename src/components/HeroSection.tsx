@@ -46,7 +46,18 @@ const HeroSection = () => {
             >
               When anxiety spikes, a craving hits, or panic sets in — Steady gives you one clear action to get through the next 60 seconds.
             </p>
-            <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
+            <button
+              id="install_click"
+              onClick={() => {
+                (window as any).dataLayer?.push({
+                  event: "install_click",
+                  button_text: "Download for iOS",
+                  concept: "steady_v1",
+                });
+                setModalOpen(true);
+              }}
+              className="btn-primary-dark"
+            >
               Download for iOS
             </button>
             <p
@@ -146,7 +157,18 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}
           >
-            <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
+            <button
+              id="install_click"
+              onClick={() => {
+                (window as any).dataLayer?.push({
+                  event: "install_click",
+                  button_text: "Download for iOS",
+                  concept: "steady_v1",
+                });
+                setModalOpen(true);
+              }}
+              className="btn-primary-dark"
+            >
               Download for iOS
             </button>
             <p

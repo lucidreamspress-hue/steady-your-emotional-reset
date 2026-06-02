@@ -77,7 +77,15 @@ const FinalCTASection = () => {
               One tap. Sixty seconds. That's all Steady asks.
             </p>
             <button
-              onClick={() => setOpen(true)}
+              id="install_click"
+              onClick={() => {
+                (window as any).dataLayer?.push({
+                  event: "install_click",
+                  button_text: "Download for iOS",
+                  concept: "steady_v1",
+                });
+                setOpen(true);
+              }}
               className="btn-cta-light"
               style={{
                 display: "inline-flex",

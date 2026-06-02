@@ -54,7 +54,15 @@ const Navbar = () => {
             </div>
             <div className="hidden md:block">
               <button
-                onClick={() => setOpen(true)}
+                id="install_click"
+                onClick={() => {
+                  (window as any).dataLayer?.push({
+                    event: "install_click",
+                    button_text: "Download for iOS",
+                    concept: "steady_v1",
+                  });
+                  setOpen(true);
+                }}
                 className="btn-primary-dark"
                 style={{ padding: "10px 22px", fontSize: "13px" }}
               >
