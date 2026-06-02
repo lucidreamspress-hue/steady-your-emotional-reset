@@ -56,7 +56,8 @@ const Navbar = () => {
               <button
                 id="install_click"
                 onClick={() => {
-                  (window as any).dataLayer?.push({
+                  (window as any).dataLayer = (window as any).dataLayer || [];
+                  (window as any).dataLayer.push({
                     event: "install_click",
                     button_text: "Download for iOS",
                     concept: "steady_v1",
