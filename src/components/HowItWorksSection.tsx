@@ -56,7 +56,6 @@ const HowItWorksSection = () => {
           className="hidden md:grid"
           style={{ gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}
         >
-          {/* Steps — left side, plain, no backgrounds */}
           <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
             {steps.map((step, i) => (
               <motion.div
@@ -99,7 +98,6 @@ const HowItWorksSection = () => {
             ))}
           </div>
 
-          {/* Auto-rotating image — right side */}
           <div
             style={{
               display: "flex",
@@ -121,7 +119,7 @@ const HowItWorksSection = () => {
                     transition={{ duration: 0.8 }}
                     style={{
                       width: "100%",
-                      maxWidth: "600px",
+                      maxWidth: "580px",
                       height: "auto",
                       filter: "drop-shadow(0 24px 48px rgba(26,42,58,0.15))",
                     }}
@@ -132,32 +130,29 @@ const HowItWorksSection = () => {
           </div>
         </div>
 
-        {/* MOBILE — horizontal scroll snap carousel */}
-        <div
-          className="md:hidden"
-          style={{ overflow: "hidden", width: "100%", marginTop: "8px" }}
-        >
+        {/* MOBILE — swipeable scroll snap carousel */}
+        <div className="md:hidden" style={{ marginTop: "8px" }}>
           <div
             style={{
               display: "flex",
-              overflowX: "auto",
+              overflowX: "scroll",
               scrollSnapType: "x mandatory",
-              gap: "12px",
-              paddingLeft: "4px",
-              paddingRight: "4px",
-              paddingBottom: "16px",
+              gap: "16px",
+              paddingBottom: "20px",
               WebkitOverflowScrolling: "touch",
               scrollbarWidth: "none",
               msOverflowStyle: "none",
+              cursor: "grab",
             }}
           >
             {steps.map((step) => (
               <div
                 key={step.number}
                 style={{
-                  minWidth: "calc(100vw - 72px)",
+                  minWidth: "80vw",
+                  maxWidth: "80vw",
                   flexShrink: 0,
-                  scrollSnapAlign: "center",
+                  scrollSnapAlign: "start",
                   borderRadius: "20px",
                   overflow: "hidden",
                   background: "rgba(255,255,255,0.55)",
@@ -166,20 +161,32 @@ const HowItWorksSection = () => {
                   border: "1px solid rgba(255,255,255,0.75)",
                 }}
               >
-                <img
-                  src={howItWorksMockup}
-                  alt={step.title}
+                <div
                   style={{
-                    width: "100%",
-                    height: "300px",
-                    objectFit: "contain",
-                    objectPosition: "center",
-                    background: "rgba(240,244,248,0.5)",
-                    display: "block",
+                    background: "rgba(240,244,248,0.8)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "24px 16px",
+                    minHeight: "280px",
                   }}
-                />
-                <div style={{ padding: "20px" }}>
-                  <div className="glass-number" style={{ marginBottom: "10px" }}>
+                >
+                  <img
+                    src={howItWorksMockup}
+                    alt={step.title}
+                    style={{
+                      width: "100%",
+                      maxWidth: "200px",
+                      height: "auto",
+                      display: "block",
+                    }}
+                  />
+                </div>
+                <div style={{ padding: "20px 20px 24px" }}>
+                  <div
+                    className="glass-number"
+                    style={{ marginBottom: "10px" }}
+                  >
                     {step.number}
                   </div>
                   <h3
