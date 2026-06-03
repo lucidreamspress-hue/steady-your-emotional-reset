@@ -48,7 +48,7 @@ const HeroSection = () => {
       </section>
 
       {/* MOBILE — same container as navbar: mx-auto px-8 max-w-6xl */}
-      <section className="md:hidden" style={{ paddingTop: "120px", paddingBottom: "40px" }}>
+      <section className="md:hidden" style={{ paddingTop: "140px", paddingBottom: "40px" }}>
         <div className="mx-auto px-8 max-w-6xl w-full">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
