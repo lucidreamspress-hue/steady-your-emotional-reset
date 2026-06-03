@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav ref={navRef as any} className="fixed top-0 left-0 right-0 z-50" style={{ border: "2px solid red" }}>
+      <nav ref={navRef as any} className="fixed top-0 left-0 right-0 z-50"
         <div className="mx-auto px-8 md:px-16 py-5 max-w-6xl">
           <div className="glass-surface rounded-full px-6 py-3 flex items-center justify-between">
             <a
