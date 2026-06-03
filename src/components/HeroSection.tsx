@@ -54,7 +54,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            style={{ fontSize: "40px", fontWeight: 600, lineHeight: 1.1, color: "#1a2a3a", letterSpacing: "-0.02em", marginBottom: "20px" }}
+            style={{ fontSize: "40px", fontWeight: 600, lineHeight: 1.1, color: "#1a2a3a", letterSpacing: "-0.02em", textAlign: "left", marginBottom: "20px" }}
           >
             One tap.<br />One reset.<br />Right now.
           </motion.h1>
