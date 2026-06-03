@@ -1,89 +1,118 @@
-import { useState, useEffect } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
-interface Props {
+interface EarlyAccessModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-const EarlyAccessModal = ({ open, onOpenChange }: Props) => {
+const EarlyAccessModal = ({ open, onOpenChange }: EarlyAccessModalProps) => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (open) {
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-    } else {
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-    };
-  }, [open]);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
-      setSubmitted(true);
-    }
-  };
-
-  const handleClose = (val: boolean) => {
-    onOpenChange(val);
-    if (!val) {
-      setTimeout(() => {
-        setSubmitted(false);
-        setEmail("");
-      }, 300);
-    }
+    if (!email) return;
+    setLoading(true);
+    // Simulate submission
+    await new Promise((r) => setTimeout(r, 800));
+    setSubmitted(true);
+    setLoading(false);
   };
 
   return (
-    <Dialog open={open} onOpenChange={handleClose}>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="border-none glass-surface rounded-2xl"
-        style={{ maxWidth: "360px", width: "calc(100vw - 48px)", margin: "0 auto", padding: "32px 28px" }}
+        style={{
+          maxWidth: "360px",
+          width: "calc(100vw - 48px)",
+          borderRadius: "20px",
+          padding: "36px 28px",
+          background: "rgba(255,255,255,0.96)",
+          backdropFilter: "blur(24px)",
+          border: "1px solid rgba(255,255,255,0.8)",
+        }}
       >
-        <DialogHeader>
-          <DialogTitle className="font-display text-2xl" style={{ color: "#1a2a3a", fontWeight: 400 }}>Download for iOS</DialogTitle>
-          <DialogDescription style={{ color: "#4a6070" }}>
-            Join the early access list. We'll email you when Steady is ready.
-          </DialogDescription>
-        </DialogHeader>
-
         {!submitted ? (
-          <form onSubmit={handleSubmit} className="space-y-4 mt-2">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email"
-              className="w-full px-4 py-3 rounded-xl bg-secondary/60 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 text-sm border border-border/30"
-            />
-            <button
-              type="submit"
-              className="w-full btn-primary-dark"
-              style={{ padding: "16px 32px", fontSize: "15px" }}
-            >
-              Download for iOS
-            </button>
-          </form>
+          <>
+            <DialogHeader>
+              <DialogTitle
+                style={{
+                  fontFamily: "'Host Grotesk', sans-serif",
+                  fontSize: "22px",
+                  fontWeight: 600,
+                  color: "#1a2a3a",
+                  letterSpacing: "-0.02em",
+                  marginBottom: "8px",
+                  textAlign: "center",
+                }}
+              >
+                Steady is coming to iOS
+              </DialogTitle>
+              <DialogDescription
+                style={{
+                  fontFamily: "Jost, sans-serif",
+                  fontSize: "15px",
+                  fontWeight: 300,
+                  color: "#4a6070",
+                  lineHeight: 1.6,
+                  textAlign: "center",
+                  marginBottom: "24px",
+                }}
+              >
+                Join the early access list. We'll email you when Steady is ready.
+              </DialogDescription>
+            </DialogHeader>
+
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <input
+                type="email"
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                style={{
+                  width: "100%",
+                  padding: "12px 16px",
+                  borderRadius: "12px",
+                  border: "1px solid rgba(26,42,58,0.15)",
+                  background: "rgba(240,244,248,0.8)",
+                  fontFamily: "Jost, sans-serif",
+                  fontSize: "15px",
+                  fontWeight: 300,
+                  color: "#1a2a3a",
+                  outline: "none",
+                  boxSizing: "border-box",
+                }}
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn-primary-dark"
+                style={{ width: "100%", opacity: loading ? 0.7 : 1 }}
+              >
+                {loading ? "Saving your spot..." : "Save my spot"}
+              </button>
+            </form>
+          </>
         ) : (
-          <div className="py-8 text-center">
-            <p className="font-serif text-foreground text-xl">You're in.</p>
-            <p className="text-sm text-muted-foreground mt-2">
-              We'll reach out when Steady is ready.
+          <div style={{ textAlign: "center", padding: "16px 0" }}>
+            <p style={{ fontSize: "32px", marginBottom: "12px" }}>🌿</p>
+            <h3
+              style={{
+                fontFamily: "'Host Grotesk', sans-serif",
+                fontSize: "20px",
+                fontWeight: 600,
+                color: "#1a2a3a",
+                letterSpacing: "-0.02em",
+                marginBottom: "8px",
+              }}
+            >
+              You're on the list.
+            </h3>
+            <p style={{ fontFamily: "Jost, sans-serif", fontSize: "15px", fontWeight: 300, color: "#4a6070", lineHeight: 1.6 }}>
+              We'll email you as soon as Steady is ready. Take a breath — it won't be long.
             </p>
           </div>
         )}
