@@ -8,9 +8,9 @@ const HeroSection = () => {
 
   return (
     <>
-      {/* DESKTOP — full height, two columns */}
+      {/* DESKTOP */}
       <section className="hidden md:flex items-center min-h-screen pt-24 pb-16">
-        <div className="mx-auto px-16 max-w-6xl w-full">
+        <div className="mx-auto px-8 md:px-16 max-w-6xl w-full">
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -47,14 +47,14 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* MOBILE — compact, left-aligned, no min-h-screen */}
-      <section className="md:hidden" style={{ paddingTop: "72px", paddingBottom: "40px" }}>
-        <div style={{ padding: "0 24px" }}>
+      {/* MOBILE — same container as navbar: mx-auto px-8 max-w-6xl */}
+      <section className="md:hidden" style={{ paddingTop: "80px", paddingBottom: "40px" }}>
+        <div className="mx-auto px-8 max-w-6xl w-full">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            style={{ fontSize: "40px", fontWeight: 600, lineHeight: 1.1, color: "#1a2a3a", letterSpacing: "-0.02em", marginBottom: "20px", textAlign: "left" }}
+            style={{ fontSize: "40px", fontWeight: 600, lineHeight: 1.1, color: "#1a2a3a", letterSpacing: "-0.02em", marginBottom: "20px" }}
           >
             One tap.<br />One reset.<br />Right now.
           </motion.h1>
@@ -77,7 +77,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            style={{ fontFamily: "Jost, sans-serif", fontSize: "17px", fontWeight: 300, lineHeight: 1.65, color: "#4a6070", marginBottom: "24px", textAlign: "left" }}
+            style={{ fontFamily: "Jost, sans-serif", fontSize: "17px", fontWeight: 300, lineHeight: 1.65, color: "#4a6070", marginBottom: "24px" }}
           >
             When anxiety spikes, a craving hits, or panic sets in — Steady gives you one clear action to get through the next 60 seconds.
           </motion.p>
