@@ -98,7 +98,6 @@ const EarlyAccessModal = ({ open, onOpenChange }: EarlyAccessModalProps) => {
           </>
         ) : (
           <div style={{ textAlign: "center", padding: "16px 0" }}>
-            <p style={{ fontSize: "32px", marginBottom: "12px" }}>🌿</p>
             <h3
               style={{
                 fontFamily: "'Host Grotesk', sans-serif",
@@ -112,7 +111,7 @@ const EarlyAccessModal = ({ open, onOpenChange }: EarlyAccessModalProps) => {
               You're on the list.
             </h3>
             <p style={{ fontFamily: "Jost, sans-serif", fontSize: "15px", fontWeight: 300, color: "#4a6070", lineHeight: 1.6 }}>
-              We'll email you as soon as Steady is ready. Take a breath — it won't be long.
+              We'll email you as soon as Steady is ready.
             </p>
           </div>
         )}
