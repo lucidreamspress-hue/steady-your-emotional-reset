@@ -48,8 +48,9 @@ const HeroSection = () => {
       </section>
 
       {/* MOBILE — same container as navbar: mx-auto px-8 max-w-6xl */}
-      <section className="md:hidden" style={{ paddingTop: "140px", paddingBottom: "40px" }}>
+      <section className="md:hidden" style={{ paddingTop: "160px", paddingBottom: "40px" }}>
         <div className="mx-auto px-8 max-w-6xl w-full">
+          {(() => { console.log("MOBILE RENDER"); return null; })()}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
