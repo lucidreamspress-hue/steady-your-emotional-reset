@@ -10,7 +10,7 @@ const HeroSection = () => {
     <section style={{ display: "flex", alignItems: "center", paddingBottom: "48px" }}>
       <div className="mx-auto px-8 md:px-16 max-w-6xl w-full">
 
-        {/* DESKTOP — hidden on mobile */}
+        {/* DESKTOP only — hidden on mobile */}
         <div
           className="hidden md:grid"
           style={{ gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center", minHeight: "100svh" }}
@@ -46,19 +46,7 @@ const HeroSection = () => {
             >
               When anxiety spikes, a craving hits, or panic sets in — Steady gives you one clear action to get through the next 60 seconds.
             </p>
-            <button
-              id="install_click"
-              onClick={() => {
-                (window as any).dataLayer = (window as any).dataLayer || [];
-                (window as any).dataLayer.push({
-                  event: "install_click",
-                  button_text: "Download for iOS",
-                  concept: "steady_v1",
-                });
-                setModalOpen(true);
-              }}
-              className="btn-primary-dark"
-            >
+            <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
               Download for iOS
             </button>
             <p
@@ -97,10 +85,10 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* MOBILE — hidden on desktop */}
+        {/* MOBILE only — hidden on desktop */}
         <div
           className="flex flex-col items-center text-center md:hidden"
-          style={{ paddingTop: "88px", paddingBottom: "40px" }}
+          style={{ paddingTop: "80px", paddingBottom: "40px" }}
         >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -108,7 +96,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             style={{
               fontFamily: "'Host Grotesk', sans-serif",
-              fontSize: "42px",
+              fontSize: "40px",
               fontWeight: 600,
               lineHeight: 1.1,
               color: "#1a2a3a",
@@ -124,11 +112,11 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             src={heroMockup}
-            alt="Steady app reset screen on iPhone"
+            alt="Steady app"
             className="animate-float"
             style={{
-              width: "90%",
-              maxWidth: "340px",
+              width: "85%",
+              maxWidth: "320px",
               height: "auto",
               filter: "drop-shadow(0 16px 32px rgba(26,42,58,0.15))",
               marginBottom: "20px",
@@ -146,7 +134,7 @@ const HeroSection = () => {
               lineHeight: 1.65,
               color: "#4a6070",
               marginBottom: "24px",
-              maxWidth: "320px",
+              maxWidth: "300px",
             }}
           >
             When anxiety spikes, a craving hits, or panic sets in — Steady gives you one clear action to get through the next 60 seconds.
@@ -158,19 +146,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}
           >
-            <button
-              id="install_click"
-              onClick={() => {
-                (window as any).dataLayer = (window as any).dataLayer || [];
-                (window as any).dataLayer.push({
-                  event: "install_click",
-                  button_text: "Download for iOS",
-                  concept: "steady_v1",
-                });
-                setModalOpen(true);
-              }}
-              className="btn-primary-dark"
-            >
+            <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
               Download for iOS
             </button>
             <p
@@ -181,7 +157,7 @@ const HeroSection = () => {
                 fontStyle: "italic",
                 lineHeight: 1.6,
                 color: "#4a6070",
-                maxWidth: "280px",
+                maxWidth: "260px",
               }}
             >
               No long programs. No habit trackers. Just one clear action when you need it most.
