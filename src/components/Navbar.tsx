@@ -7,16 +7,6 @@ const navLinks = [
   { label: "Science", href: "#solution" },
 ];
 
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
-  const navRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (navRef.current) {
-      console.log("NAV HEIGHT:", navRef.current.offsetHeight);
-    }
-  }, []);
-
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const el = document.querySelector(href);
