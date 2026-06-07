@@ -17,6 +17,12 @@ const EarlyAccessModal = ({ open, onOpenChange }: EarlyAccessModalProps) => {
     setLoading(true);
     // Simulate submission
     await new Promise((r) => setTimeout(r, 800));
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push({
+      event: "form_submit",
+      form_name: "early_access",
+      concept: "steady_v1",
+    });
     setSubmitted(true);
     setLoading(false);
   };
