@@ -1,11 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import EarlyAccessModal from "./EarlyAccessModal";
+import { openWaitlistFromCTA } from "@/lib/waitlistStore";
 import heroMockup from "@/assets/hero-mockup.png";
 
 const HeroSection = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <>
       {/* DESKTOP */}
@@ -23,7 +20,7 @@ const HeroSection = () => {
               <p style={{ fontFamily: "Jost, sans-serif", fontSize: "20px", fontWeight: 300, lineHeight: 1.65, color: "#4a6070", marginBottom: "32px", maxWidth: "480px" }}>
                 When anxiety spikes, a craving hits, or panic sets in — Steady gives you one clear action to get through the next 60 seconds.
               </p>
-              <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
+              <button onClick={openWaitlistFromCTA} className="btn-primary-dark">
                 Download for iOS
               </button>
               <p style={{ fontFamily: "Jost, sans-serif", fontSize: "15px", fontWeight: 300, fontStyle: "italic", lineHeight: 1.6, color: "#4a6070", marginTop: "16px", maxWidth: "420px" }}>
@@ -88,7 +85,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <button onClick={() => setModalOpen(true)} className="btn-primary-dark">
+            <button onClick={openWaitlistFromCTA} className="btn-primary-dark">
               Download for iOS
             </button>
             <p style={{ fontFamily: "Jost, sans-serif", fontSize: "13px", fontWeight: 300, fontStyle: "italic", lineHeight: 1.6, color: "#4a6070", marginTop: "12px" }}>
@@ -98,7 +95,6 @@ const HeroSection = () => {
         </div>
       </section>
 
-      <EarlyAccessModal open={modalOpen} onOpenChange={setModalOpen} />
     </>
   );
 };

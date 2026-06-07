@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import EarlyAccessModal from "./EarlyAccessModal";
+import { useRef, useEffect } from "react";
+import { openWaitlistFromCTA, waitlistStore } from "@/lib/waitlistStore";
 
 const navLinks = [
   { label: "How it works", href: "#how-it-works" },
@@ -8,7 +8,6 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -62,15 +61,7 @@ const Navbar = () => {
             <div className="hidden md:block">
               <button
                 id="install_click"
-                onClick={() => {
-                  (window as any).dataLayer = (window as any).dataLayer || [];
-                  (window as any).dataLayer.push({
-                    event: "install_click",
-                    button_text: "Download for iOS",
-                    concept: "steady_v1",
-                  });
-                  setOpen(true);
-                }}
+                onClick={openWaitlistFromCTA}
                 className="btn-primary-dark"
                 style={{ padding: "10px 22px", fontSize: "13px" }}
               >
@@ -80,7 +71,7 @@ const Navbar = () => {
             <button
               type="button"
               className="md:hidden"
-              onClick={() => setOpen(true)}
+              onClick={() => waitlistStore.open()}
               style={{
                 fontFamily: "Jost, sans-serif",
                 fontSize: "13px",
@@ -98,7 +89,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <EarlyAccessModal open={open} onOpenChange={setOpen} />
     </>
   );
 };
