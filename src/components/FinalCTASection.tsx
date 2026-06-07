@@ -1,11 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import EarlyAccessModal from "./EarlyAccessModal";
+import { openWaitlistFromCTA } from "@/lib/waitlistStore";
 import desertBg from "@/assets/desert-tranquility.webp";
 
 const FinalCTASection = () => {
-  const [open, setOpen] = useState(false);
-
   return (
     <section
       className="cta-section py-40 md:py-56"
@@ -78,15 +75,7 @@ const FinalCTASection = () => {
             </p>
             <button
               id="install_click"
-              onClick={() => {
-                (window as any).dataLayer = (window as any).dataLayer || [];
-                (window as any).dataLayer.push({
-                  event: "install_click",
-                  button_text: "Download for iOS",
-                  concept: "steady_v1",
-                });
-                setOpen(true);
-              }}
+              onClick={openWaitlistFromCTA}
               className="btn-cta-light"
               style={{
                 display: "inline-flex",
@@ -111,7 +100,6 @@ const FinalCTASection = () => {
           </motion.div>
         </div>
       </div>
-      <EarlyAccessModal open={open} onOpenChange={setOpen} />
     </section>
   );
 };
