@@ -1,53 +1,37 @@
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { useWaitlist, waitlistStore } from "@/lib/waitlistStore";
 
-interface EarlyAccessModalProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-}
-
-const JOINED_KEY = "steady_waitlist_joined";
-
-const hasJoined = () => {
-  try {
-    return sessionStorage.getItem(JOINED_KEY) === "1";
-  } catch {
-    return false;
-  }
-};
-
-const EarlyAccessModal = ({ open, onOpenChange }: EarlyAccessModalProps) => {
+const EarlyAccessModal = () => {
+  const { open, joined } = useWaitlist();
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState<boolean>(() => hasJoined());
   const [loading, setLoading] = useState(false);
+  const hasTrackedFormSubmit = useRef(false);
+  const submitting = useRef(false);
 
-  useEffect(() => {
-    if (open && hasJoined()) {
-      setSubmitted(true);
-    }
-  }, [open]);
+  const submitted = joined;
+
+  const onOpenChange = (next: boolean) => waitlistStore.setOpen(next);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    if (hasJoined()) {
-      setSubmitted(true);
-      return;
-    }
+    if (joined || submitting.current) return;
+    submitting.current = true;
     setLoading(true);
-    // Simulate submission
     await new Promise((r) => setTimeout(r, 800));
-    try {
-      sessionStorage.setItem(JOINED_KEY, "1");
-    } catch {}
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer.push({
-      event: "form_submit",
-      form_name: "early_access",
-      concept: "steady_v1",
-    });
-    setSubmitted(true);
+    if (!hasTrackedFormSubmit.current) {
+      hasTrackedFormSubmit.current = true;
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({
+        event: "form_submit",
+        form_name: "early_access",
+        concept: "steady_v1",
+      });
+    }
+    waitlistStore.markJoined();
     setLoading(false);
+    submitting.current = false;
   };
 
   return (
