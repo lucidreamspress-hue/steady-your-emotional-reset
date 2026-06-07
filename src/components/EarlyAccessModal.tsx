@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 interface EarlyAccessModalProps {
@@ -6,17 +6,40 @@ interface EarlyAccessModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
+const JOINED_KEY = "steady_waitlist_joined";
+
+const hasJoined = () => {
+  try {
+    return sessionStorage.getItem(JOINED_KEY) === "1";
+  } catch {
+    return false;
+  }
+};
+
 const EarlyAccessModal = ({ open, onOpenChange }: EarlyAccessModalProps) => {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState<boolean>(() => hasJoined());
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (open && hasJoined()) {
+      setSubmitted(true);
+    }
+  }, [open]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
+    if (hasJoined()) {
+      setSubmitted(true);
+      return;
+    }
     setLoading(true);
     // Simulate submission
     await new Promise((r) => setTimeout(r, 800));
+    try {
+      sessionStorage.setItem(JOINED_KEY, "1");
+    } catch {}
     (window as any).dataLayer = (window as any).dataLayer || [];
     (window as any).dataLayer.push({
       event: "form_submit",
