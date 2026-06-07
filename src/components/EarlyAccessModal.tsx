@@ -48,7 +48,7 @@ const EarlyAccessModal = ({ open, onOpenChange }: EarlyAccessModalProps) => {
                   textAlign: "center",
                 }}
               >
-                Steady is coming to iOS
+                Get Early Access
               </DialogTitle>
               <DialogDescription
                 style={{
@@ -61,14 +61,14 @@ const EarlyAccessModal = ({ open, onOpenChange }: EarlyAccessModalProps) => {
                   marginBottom: "24px",
                 }}
               >
-                Join the early access list. We'll email you when Steady is ready.
+                Leave your email and we'll let you know as soon as Steady is ready.
               </DialogDescription>
             </DialogHeader>
 
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               <input
                 type="email"
-                placeholder="your@email.com"
+                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -92,7 +92,7 @@ const EarlyAccessModal = ({ open, onOpenChange }: EarlyAccessModalProps) => {
                 className="btn-primary-dark"
                 style={{ width: "100%", opacity: loading ? 0.7 : 1 }}
               >
-                {loading ? "Saving your spot..." : "Save my spot"}
+                {loading ? "Getting Early Access..." : "Get Early Access"}
               </button>
             </form>
           </>
