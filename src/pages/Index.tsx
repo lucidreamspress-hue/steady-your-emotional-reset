@@ -6,6 +6,7 @@ import SolutionSection from "@/components/SolutionSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
+import EarlyAccessModal from "@/components/EarlyAccessModal";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <ReviewsSection />
       <FinalCTASection />
       <Footer />
+      <EarlyAccessModal />
     </div>
   );
 };
