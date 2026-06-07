@@ -92,7 +92,7 @@ const EarlyAccessModal = ({ open, onOpenChange }: EarlyAccessModalProps) => {
                 className="btn-primary-dark"
                 style={{ width: "100%", opacity: loading ? 0.7 : 1 }}
               >
-                {loading ? "Getting Early Access..." : "Get Early Access"}
+                {loading ? "Joining Waitlist..." : "Join Waitlist"}
               </button>
             </form>
           </>
