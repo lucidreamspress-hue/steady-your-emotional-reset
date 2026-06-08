@@ -112,11 +112,11 @@ const HowItWorksSection = () => {
                 overflow: "hidden",
               }}
             >
-              <div style={{ background: "rgba(240,244,248,0.8)", display: "flex", justifyContent: "center", alignItems: "center", padding: "16px", minHeight: "420px" }}>
+              <div style={{ background: "rgba(240,244,248,0.8)", display: "flex", justifyContent: "center", alignItems: "center", padding: "24px 16px", minHeight: "380px" }}>
                 <img
                   src={step.image}
                   alt={step.title}
-                  style={{ width: "100%", maxWidth: "340px", height: "auto", display: "block" }}
+                  style={{ width: "100%", maxWidth: "320px", height: "auto", display: "block" }}
                 />
               </div>
               <div style={{ padding: "24px" }}>
