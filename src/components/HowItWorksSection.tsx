@@ -1,22 +1,27 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import howItWorksMockup from "@/assets/how-it-works-mockup.png";
+import howItWorksMockup2 from "@/assets/how-it-works-mockup-2.png";
+import howItWorksMockup3 from "@/assets/how-it-works-mockup-3.png";
 
 const steps = [
   {
     number: "1",
     title: "Tell Steady how you feel",
     description: "Pick from overwhelmed, stuck, or numb — or just tap reset.",
+    image: howItWorksMockup,
   },
   {
     number: "2",
     title: "Get a tailored micro-tool",
     description: "Breathing, grounding, or attention-shifting in under a minute.",
+    image: howItWorksMockup2,
   },
   {
     number: "3",
     title: "Feel steadier, fast",
     description: "Most resets take about 60 seconds.",
+    image: howItWorksMockup3,
   },
 ];
 
@@ -70,20 +75,20 @@ const HowItWorksSection = () => {
           </div>
 
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "600px" }}>
-            {steps.map((_, idx) =>
-              activeImage === idx ? (
-                <motion.img
-                  key={`img-${idx}`}
-                  src={howItWorksMockup}
-                  alt={`Step ${idx + 1}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.8 }}
-                  style={{ width: "100%", maxWidth: "560px", height: "auto", filter: "drop-shadow(0 24px 48px rgba(26,42,58,0.15))" }}
-                />
-              ) : null
-            )}
+{steps.map((step, idx) =>
+  activeImage === idx ? (
+    <motion.img
+      key={`img-${idx}`}
+      src={step.image}
+      alt={`Step ${idx + 1}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8 }}
+      style={{ width: "100%", maxWidth: "560px", height: "auto", filter: "drop-shadow(0 24px 48px rgba(26,42,58,0.15))" }}
+    />
+  ) : null
+)}
           </div>
         </div>
 
@@ -106,11 +111,9 @@ const HowItWorksSection = () => {
               }}
             >
               {/* Large image */}
-              <div style={{ background: "rgba(240,244,248,0.8)", display: "flex", justifyContent: "center", alignItems: "center", padding: "32px 24px" }}>
-                <img
-                  src={howItWorksMockup}
-                  alt={step.title}
-                  style={{ width: "100%", maxWidth: "260px", height: "auto", display: "block" }}
+              <div style={{ background: "rgba(240,244,248,0.8)", display: "flex", justifyContent: "center", alignItems: "center", padding: "24px 16px", minHeight: "360px" }}>
+               <img src={step.image} alt={step.title}
+                  style={{ width: "100%", maxWidth: "360px", height: "auto", display: "block" }}
                 />
               </div>
               {/* Text */}
