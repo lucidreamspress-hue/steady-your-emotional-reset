@@ -6,6 +6,7 @@ const EarlyAccessModal = () => {
   const { open, joined } = useWaitlist();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const emailInputRef = useRef<HTMLInputElement>(null);
   const hasTrackedFormSubmit = useRef(false);
   const submitting = useRef(false);
 
@@ -13,9 +14,8 @@ const EarlyAccessModal = () => {
 
   const onOpenChange = (next: boolean) => waitlistStore.setOpen(next);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
+  const handleSubmit = async () => {
+    if (!emailInputRef.current?.reportValidity()) return;
     if (joined || submitting.current) return;
     submitting.current = true;
     setLoading(true);
@@ -78,12 +78,19 @@ const EarlyAccessModal = () => {
               </DialogDescription>
             </DialogHeader>
 
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <div role="form" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               <input
+                ref={emailInputRef}
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    handleSubmit();
+                  }
+                }}
                 required
                 style={{
                   width: "100%",
@@ -100,14 +107,15 @@ const EarlyAccessModal = () => {
                 }}
               />
               <button
-                type="submit"
+                type="button"
+                onClick={handleSubmit}
                 disabled={loading}
                 className="btn-primary-dark"
                 style={{ width: "100%", opacity: loading ? 0.7 : 1 }}
               >
                 {loading ? "Joining Waitlist..." : "Join Waitlist"}
               </button>
-            </form>
+            </div>
           </>
         ) : (
           <div style={{ textAlign: "center", padding: "16px 0" }}>
